@@ -2,25 +2,22 @@
 
 The *alias* tag provides a way to create references to specific URLs. Each of these can reference a parent **alias** in order to construct cascading paths, similar to a poor man's C macro.
 
-~~~html
+```html
    <alias name="CONTENT_ROOT" url="/public/app/html"  />
    <alias name="PAGES"  url="pages" path="CONTENT_ROOT"  />
    <alias name="CHART_PAGE" url="charts.html" path="PAGES" />
    <alias name="CREDITS_PAGE" url="credits.html" path="PAGES" />
-~~~
+```
 
 Using *alias* , you can refactor the directory structure of an existing application, changing files and locations without modifying the underlying code. 
 
 ### attributes
 
-**name**
-   :The actual string used to reference the alias.
+**name:** The actual string used to reference the alias.
 
-**url** 
-   :The url is a relative or absolute path to an actual file. 
+**url:** The url is a relative or absolute path to an actual file. 
 
-**path** *(optional)*
-   :The path is an optional directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias*. They can be chained together.
+**path:** *(optional)* The path is an optional directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias*. They can be chained together.
 
 
    
