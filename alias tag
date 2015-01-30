@@ -4,9 +4,9 @@ The **alias** tag provides a way to create references to specific URLs. Each of 
 
 ```html
 
-<alias name="CONTENT_ROOT" url="/public/app/html"  />
-<alias name="PAGES" url="pages" path="CONTENT_ROOT"  />
-<alias name="CHART_PAGE" url="charts.html" path="PAGES" />
+    <alias name="CONTENT_ROOT" url="/public/app/html"  />
+    <alias name="PAGES" url="pages" path="CONTENT_ROOT"  />
+    <alias name="CHART_PAGE" url="charts.html" path="PAGES" />
 <alias name="CREDITS_PAGE" url="credits.html" path="PAGES" />
 
 ```
