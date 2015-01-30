@@ -1,14 +1,20 @@
 # alias tag
 
-    c
-gar 
-
-```meow
-bunny
-```
-
 ```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
+function(){
+var x = 'meow';
+var w = 'puppy';
+if(x)
+    return;
+}
 ```
 
+```html
+<alias name="bunny" when="awesome" />
+```  
+
+  var x = 5;
+    var y = 6
+
+
+gar 
