@@ -1,19 +1,30 @@
 # Cog tag
 
-The *cog* tag embeds a visible *cog* component within the HTML display of the current *cog*, loading lazily into a DOM container referenced by its virtual *id* attribute. 
+The *cog* tag embeds a visible *cog* component within the HTML display of the current *cog*, loading (lazy-style) into (or about) the DOM container referenced by its *id* attribute. 
 
 ```html
-   <alias name="CONTENT_ROOT" url="/public/app/html"  />
-   <alias name="PAGES"  url="pages" path="CONTENT_ROOT"  />
-   <alias name="CHART_PAGE" url="charts.html" path="PAGES" />
-   <alias name="CREDITS_PAGE" url="credits.html" path="PAGES" />
+   <cog find="header" url="HEADER"  />
+   <cog find="panel" url="panel.html" path="core/components"  />
+   <cog find="page" url="data currentPage" path="PAGES"  />
+   <cog find="status" source="run getStatus" item="config status" url="../indicators/status.html"  />
+   <cog find="footer_holder" and="prepend" url="FOOTER"  />
 ```
 
+path: extractString(sel, "path"),
+            name: extractString(sel, "name", 'cog'),
+            url: extractString(sel, "url"),
+            
+         
+          source: extractString(sel, 'source'),
+            item: extractString(sel, 'item','cog'),
+            target: extractString(sel, "find"),
+            action: extractString(sel, "and", 'append'),
+           
 Using *alias* tags, one can rearrange the directory structure of an existing applicationwithout modifying the underlying code. 
 
 ### attributes
 
-**name:** The actual string used to reference the alias.
+**find:** Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder    string used to reference the alias.
 
 **url:** The url is a relative or absolute path to an actual file. 
 
