@@ -1,4 +1,4 @@
-## Alias tag
+## Alias
 
 The *alias* tag provides a way to create references to specific URLs. Each of these can reference a parent *alias* via their path attribute in order to construct cascading paths, similar to a poor man's C macro. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
 
@@ -24,18 +24,8 @@ For clarity (and as a nod to constants and macros), the name attributes of *alia
 |-----------|--------------|-----------|-----------|
 |name| The actual string used to reference the alias. | Yes | none |
 |-----------|--------------|-----------|-----------|
-|url| A relative or absolute path to an actual file or directory. | Yes | none |
+|url|  A relative or absolute path to an actual file or directory. | Yes | none |
 |-----------|--------------|-----------|-----------|
-|path| A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. They can be chained together. | No | none |
-
-
-**name:** The actual string used to reference the alias.
-
-**url:** The url is a relative or absolute path to an actual file. 
-
-**path:** *(optional)* The *path* is an optional directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias*. They can be chained together.
-
-
-   
+|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. They can be chained together. | No | none |
 
 
