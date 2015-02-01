@@ -2,6 +2,12 @@
 
 The *alias* tag provides a way to create references to specific URLs. Each of these can reference a parent *alias* via their path attribute in order to construct cascading paths, similar to a poor man's C macro. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
 
+Using *alias* tags, one can rearrange the directory structure of an existing application without modifying the underlying code.  
+
+For clarity (and as a nod to constants and macros), the name attributes of *alias* tags are always fully capitalized with underscores between words.  
+
+### examples
+
 ```html
    <alias name="CONTENT_ROOT" url="/public/app/html"  />
    <alias name="PAGES"  url="pages" path="CONTENT_ROOT"  />
@@ -10,9 +16,16 @@ The *alias* tag provides a way to create references to specific URLs. Each of th
    <alias name="BACK_x3" url="../../../"  />
 ```
 
-Using *alias* tags, one can rearrange the directory structure of an existing application without modifying the underlying code. 
-
 ### attributes
+
+|Attribute | Description | Required? | Type(s) |
+|-----------|--------------|-----------|-----------|
+|name| The actual string used to reference the alias. | Yes | string |
+|-----------|--------------|-----------|-----------|
+|url| A relative or absolute path to an actual file or directory. | Yes | string |
+|-----------|--------------|-----------|-----------|
+|path| A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. They can be chained together. | No | string |
+
 
 **name:** The actual string used to reference the alias.
 
