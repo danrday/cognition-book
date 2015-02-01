@@ -4,14 +4,14 @@ The *cog* tag embeds a visible *cog* component within the HTML display of the cu
 
 ```html
    <cog find="header" url="HEADER"  />
-   <cog find="panel" url="panel.html" path="core/components"  />
+   <cog find="panel" url="panel.html" path="core/components"  /> 
+   <cog find="alert" url="../../indicators/alert.html" />
    <cog find="page" url="data currentPage" path="PAGES"  />
-   <cog find="status" source="run getStatus" item="config status" url="../indicators/status.html"  />
-   <cog find="footer_holder" and="prepend" url="FOOTER"  />
+   <cog find="status" source="run getStatus" item="config status" url="status.html" />
+   <cog find="footer" and="prepend" url="FOOTER"  />
 ```
 
 path: extractString(sel, "path"),
-            name: extractString(sel, "name", 'cog'),
             url: extractString(sel, "url"),
             
          
@@ -26,9 +26,15 @@ Using *alias* tags, one can rearrange the directory structure of an existing app
 
 **find:** Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder    string used to reference the alias.
 
+**and:** Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder    string used to reference the alias.
+
 **url:** The url is a relative or absolute path to an actual file. 
 
 **path:** *(optional)* The *path* is an optional directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias*. They can be chained together.
+
+**source:** *(optional)* The *path* is an optional directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias*. They can be chained together.
+
+**item:** *(optional)* The *path* is an optional directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias*. They can be chained together.
 
 
    

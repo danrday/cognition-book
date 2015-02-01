@@ -1,3 +1,9 @@
 tags
 alias tag
 cog tag
+design philosophy
+data tag
+feed tag
+motor tag
+hoist tag
+test page
