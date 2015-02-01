@@ -1,6 +1,6 @@
 ## Alias
 
-The `alias` tag provides a way to create references to specific URLs. Each of these can reference a parent `alias` via their path attribute in order to construct cascading paths, similar to a poor man's C macro. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
+The *`alias`* tag provides a way to create references to specific URLs. Each of these can reference a parent *`alias`* via their path attribute in order to construct cascading paths, similar to a poor man's C macro. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
 
 Other cognition tags with url or path attributes can use alias names as values to handle file path resolution.
 
