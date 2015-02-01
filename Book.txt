@@ -1,9 +1,11 @@
 tags
-alias tag
-cog tag
 design philosophy
+alias tag
+chain tag
+cog tag
 data tag
 feed tag
 motor tag
 hoist tag
-test page
+require tag
+preload tag
