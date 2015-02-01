@@ -4,7 +4,7 @@ The *cog* tag embeds a visible *cog* component within the HTML display of the cu
 
 ```html
    <cog find="header" url="HEADER"  />
-   <cog find="panel" url="panel.html" path="core/components"  /> 
+   <cog find="panel" url="panel.html" path="core/components"  />  
    <cog find="alert" url="../../indicators/alert.html" />
    <cog find="page" url="data currentPage" path="PAGES"  />
    <cog find="status" source="run getStatus" item="config status" url="status.html" />
@@ -38,5 +38,20 @@ Using *alias* tags, one can rearrange the directory structure of an existing app
 
 
    
+
+|Verb   | Action                                   |  Idempotent?   |
+|-------|------------------------------------------|----------------|
+|GET    | Responds with information about the      |  Yes           |
+|       | resource                                 |                |
+|-------|------------------------------------------|----------------|
+|POST   | Creates a sub-resource of the resource   |  No            |
+|       | being POSTed to                          |                |
+|-------|------------------------------------------|----------------|
+|PUT    | Creates or updates the resource being    |  Yes           |
+|       | PUT to                                   |                |
+|-------|------------------------------------------|----------------|
+|DELETE | DELETES the resource                     |  Yes           |
+|-------|------------------------------------------|----------------|
+|HEAD   | Gets metadata about the resource         |  Yes           |
 
 
