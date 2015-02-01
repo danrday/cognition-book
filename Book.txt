@@ -1,11 +1,17 @@
-tags
 design philosophy
+tag reference
+typed attributes
 alias tag
 chain tag
 cog tag
 data tag
 feed tag
-motor tag
 hoist tag
-require tag
+method tag
+motor tag
 preload tag
+prop tag
+require tag
+sensor tag
+service tag
+valve tag

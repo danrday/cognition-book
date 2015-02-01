@@ -1,12 +1,13 @@
-# Alias tag
+## Alias tag
 
-The *alias* tag provides a way to create references to specific URLs. Each of these can reference a parent *alias* in order to construct cascading paths, similar to a poor man's C macro.
+The *alias* tag provides a way to create references to specific URLs. Each of these can reference a parent *alias* via their path attribute in order to construct cascading paths, similar to a poor man's C macro. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
 
 ```html
    <alias name="CONTENT_ROOT" url="/public/app/html"  />
    <alias name="PAGES"  url="pages" path="CONTENT_ROOT"  />
    <alias name="CHART_PAGE" url="charts.html" path="PAGES" />
    <alias name="CREDITS_PAGE" url="credits.html" path="PAGES" />
+   <alias name="BACK_x3" url="../../../"  />
 ```
 
 Using *alias* tags, one can rearrange the directory structure of an existing application without modifying the underlying code. 
