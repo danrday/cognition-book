@@ -1,12 +1,12 @@
 ## Alias
 
-The *alias* tag provides a way to create references to specific URLs. Each of these can reference a parent *alias* via their path attribute in order to construct cascading paths, similar to a poor man's C macro. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
+The `alias` tag provides a way to create references to specific URLs. Each of these can reference a parent `alias` via their path attribute in order to construct cascading paths, similar to a poor man's C macro. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
 
 Other cognition tags with url or path attributes can use alias names as values to handle file path resolution.
 
-Using *alias* tags, one can rearrange the directory structure of an existing application without modifying the underlying code. 
+Using `alias` tags, one can rearrange the directory structure of an existing application without modifying the underlying code. 
 
-For clarity (and as a nod to constants and macros), the name attributes of *alias* tags are always fully capitalized with underscores between words by convention.  
+For clarity (and as a nod to constants and macros), the name attributes of `alias` tags are always fully capitalized with underscores between words by convention.  
 
 ### Alias Tag Examples
 
