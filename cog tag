@@ -39,9 +39,9 @@ Using *alias* tags, one can rearrange the directory structure of an existing app
 {width="wide"}
 |Attribute | Description | Required? | Type(s) |
 |-----------|--------------|-----------|-----------|
-|**find**| Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder string used to reference the alias. | Yes | string |
+|*find*| Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder string used to reference the alias. | Yes | string |
 |-----------|--------------|-----------|-----------|
-|**and**| Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder string used to reference the alias. | No | string |
+|*and*| Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder string used to reference the alias. | No | string |
 
 this is the moo
 
