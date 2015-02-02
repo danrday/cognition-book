@@ -25,10 +25,7 @@ The *cog* tag embeds a visible *cog* component within the HTML display of the cu
 |-----------|--------------|-----------|-----------|
 |source|  The name of the data source used to construct the cog, generally an options object. | No | *prop*, data, run, config |
 |-----------|--------------|-----------|-----------|
-|item|  The name of the data item created within the loaded cog to hold its configuration. | No | *config*, data, prop, run |
+|item|  The name of the storage item created within the loaded cog to hold its configuration; it defaults to a *config* attribute named 'item'. | No | *config*, data, prop, run |
 |-----------|--------------|-----------|-----------|
 |and|  The DOM method used to place the *cog* relative to the placeholder identified by the *find* attribute. Defaulting to 'append', other options include 'prepend', 'before', 'after', and 'replace'. | No | none |
-
-
-
 

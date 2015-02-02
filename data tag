@@ -5,9 +5,14 @@ The *data* tag creates a named location owned and governed by the *cog* in which
 ### Data Tag Examples
 
 ```html
-   <data find="header" url="HEADER"  />
-   <data find="panel" url="panel.html" path="core/components"  />  
-   <data find="alert" url="../../indicators/alert.html" />
+<data name="currentPage" />
+<data name="furColor" value="red" prop="true" />
+<data name="eyeColor" value="run determineEyeColor"  />
+<data name="numArms" value="prop armCount" />
+<data name="numLegs" value="number 4" />
+<data name="dynamicConfig" value="config configFromFile" />
+<data name="isHungry" value="true" inherit="true" />
+<data name="theWordTrue" value="string true" />
 ```
 
 ### Data Tag Attributes

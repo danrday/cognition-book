@@ -9,7 +9,7 @@ Other options can help to control how these *cogs* are layered and applied to th
 ### Chain Tag Examples
 
 ```html
-<chain find="body" source="records" item="record" url="row.html" prop="true" depth="true" />
+<chain find="body" source="records" item="rec" url="row.html" prop="true" depth="true" />
 <chain find="holder" url="COMBO_BOX" source="prop filters" item="config filter" />
 <chain find="list" url="list.html" path="LAYOUTS" source="cats" item="item" key="cat_id" />
 <chain find="content" source="people" item="prop dude" url="guy.html" build="sort" />
@@ -26,11 +26,11 @@ Other options can help to control how these *cogs* are layered and applied to th
 |-----------|--------------|-----------|-----------|
 |path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. | No | none |
 |-----------|--------------|-----------|-----------|
-|source|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named *data* tag. | Yes | data, prop, run, config |
+|source|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named *data* tag. | Yes | *data*, prop, run, config |
 |-----------|--------------|-----------|-----------|
-|item|  The data item created within each cog created from the source array. By default, it builds a *data* tag named item that is wired back to the source data. | No | data [item], prop, run, config |
+|item|  The data item created within each cog created from the source array. By default, it builds a *data* tag named 'item' that is wired back to the source data. | No | *data* 'item', prop, run, config |
 |-----------|--------------|-----------|-----------|
-|key|  A way to identify data elements that persist across source changes. An item's index in the source array is used by default. An object property name or a method to compute a key can be used as key values. | No | index, string, prop, run, config |
+|key|  A way to identify data elements that persist across source changes. An item's index in the source array is used by default. An object property name or a method to compute a key can be used as key values. | No | *index*, string, prop, run, config |
 |-----------|--------------|-----------|-----------|
 |build|  By default, build is set to 'append', and will append new elements into the *chain's* container. Use 'scratch' to destroy and rebuild with each change to the data source. Or use 'sort' to rearrange nodes to match their order in the source array. | No | none |
 |-----------|--------------|-----------|-----------|
