@@ -1,6 +1,6 @@
 design philosophy
-tag reference
 typed attributes
+tag reference
 alias tag
 chain tag
 cog tag
