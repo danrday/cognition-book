@@ -1,7 +1,10 @@
 ## Chain
 
-To manage the life-cycles of an entire array of *cogs*, one can use the *chain* tag. It is inspired heavily by D3.js's system of mapping DOM elements to discrete data elements with enter, update and exit events.
+To manage the life-cycles of an entire array of *cogs*, one can use the *chain* tag. It is inspired heavily by D3.js's system of mapping DOM nodes to discrete data elements with enter, update and exit events.
 
+With *chains*, a series of cogs based on one url are mapped to the keys (or indices) of a source array of data. Data is injected into each via the *chain's* item attribute.
+
+Other options help control how these cogs are layered and applied to the DOM.
 
 ### Chain Tag Examples
 
@@ -19,13 +22,13 @@ To manage the life-cycles of an entire array of *cogs*, one can use the *chain* 
 |-----------|--------------|-----------|-----------|
 |path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. | No | none |
 |-----------|--------------|-----------|-----------|
-|source|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named *data* tag. | Yes | data [prop,run,config] |
+|source|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named *data* tag. | Yes | data, prop, run, config |
 |-----------|--------------|-----------|-----------|
-|item|  The data item created within each cog created from the source array. By default, it builds a *data* tag named item that is wired back to the source data. | No | data item [prop,run,config] |
+|item|  The data item created within each cog created from the source array. By default, it builds a *data* tag named item that is wired back to the source data. | No | data [item], prop, run, config |
 |-----------|--------------|-----------|-----------|
-|key|  A way to identify data elements that persist across source changes. An items index in the source array is used by default. An object property name or a method to compute a key can be used as key values. | No | index [string,prop,run,config] |
+|key|  A way to identify data elements that persist across source changes. An items index in the source array is used by default. An object property name or a method to compute a key can be used as key values. | No | index, string, prop, run, config |
 |-----------|--------------|-----------|-----------|
-|build|  A way to identify data elements that persist across source changes. An items index in the source array is used by default. An object property name or a method to compute a key can be used as key values. | No | index [string,prop,run,config] |
+|build|  A way to identify data elements that persist across source changes. An items index in the source array is used by default. An object property name or a method to compute a key can be used as key values. | No | index, string, prop, run, config |
 |-----------|--------------|-----------|-----------|
 |order|  A way to identify data elements that persist across source changes. An items index in the source array is used by default. An object property name or a method to compute a key can be used as key values. | No | index [string,prop,run,config] |
 |-----------|--------------|-----------|-----------|
@@ -33,15 +36,4 @@ To manage the life-cycles of an entire array of *cogs*, one can use the *chain* 
 |-----------|--------------|-----------|-----------|
 
 
-        //
-          
-            build: extractString(sel, 'build', 'append'), // scratch, append, sort
-            order: extractBool(sel, 'order'), // will use flex order css
-            depth: extractBool(sel, 'depth'), // will use z-index
-            target: extractString(sel, "find"),
-            become: null
-        };
-
-        applyFieldType(d, 'source', DATA);
-        applyFieldType(d, 'item', DATA);
 
