@@ -1,6 +1,25 @@
-# Cog tag
+## Cog tag
 
 The *cog* tag embeds a visible *cog* component within the HTML display of the current *cog*, loading (lazy-style) into (or about) the DOM container referenced by its *id* attribute. 
+
+### Cog Tag Attributes
+
+|Name | Description | Required? | Types |
+|-----------|--------------|-----------|-----------|
+|find| The DOM element id used as placeholder by the *cog*. | Yes | none |
+|-----------|--------------|-----------|-----------|
+|url|  A relative or absolute path to a file containing a *cog* definition with at least a display declaration. | Yes | *string*, data |
+|-----------|--------------|-----------|-----------|
+|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. | No | none |
+|-----------|--------------|-----------|-----------|
+|source|  The name of the data source used to construct the cog, generally an options object. | No | *prop*, data, run, config |
+|-----------|--------------|-----------|-----------|
+|item|  The name of the data item created within the loaded cog to hold its configuration. | No | *config*, data, prop, run |
+|-----------|--------------|-----------|-----------|
+|and|  The DOM method used to place the *cog* relative to the placeholder identified by the *find* attribute. Defaulting to 'append', other options include 'prepend', 'before', 'after', and 'replace'. | No | none |
+
+
+### Cog Tag Examples
 
 ```html
    <cog find="header" url="HEADER"  />
@@ -10,56 +29,4 @@ The *cog* tag embeds a visible *cog* component within the HTML display of the cu
    <cog find="status" source="run getStatus" item="config status" url="status.html" />
    <cog find="footer" and="prepend" url="FOOTER"  />
 ```
-
-path: extractString(sel, "path"),
-            url: extractString(sel, "url"),
-            
-         
-          source: extractString(sel, 'source'),
-            item: extractString(sel, 'item','cog'),
-            target: extractString(sel, "find"),
-            action: extractString(sel, "and", 'append'),
-           
-Using *alias* tags, one can rearrange the directory structure of an existing applicationwithout modifying the underlying code. 
-
-### attributes
-
-**find:** Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder    string used to reference the alias.
-
-**and:** Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder    string used to reference the alias.
-
-**url:** The url is a relative or absolute path to an actual file. 
-
-**path:** *(optional)* The *path* is an optional directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias*. They can be chained together.
-
-**source:** *(optional)* The *path* is an optional directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias*. They can be chained together.
-
-**item:** *(optional)* The *path* is an optional directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias*. They can be chained together.
-
-{width="wide"}
-|Attribute | Description | Required? | Type(s) |
-|-----------|--------------|-----------|-----------|
-|*find*| Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder string used to reference the alias. | Yes | string |
-|-----------|--------------|-----------|-----------|
-|*and*| Should be an *id* attribute associated with a DOM element in the *display* declaration. This element will act as the target placeholder string used to reference the alias. | No | string |
-
-this is the moo
-
-   
-
-|Verb   | Action                                   |  Idempotent?   |
-|-------|------------------------------------------|----------------|
-|GET    | Responds with information about the      |  Yes           |
-|       | resource                                 |                |
-|-------|------------------------------------------|----------------|
-|POST   | Creates a sub-resource of the resource   |  No            |
-|       | being POSTed to                          |                |
-|-------|------------------------------------------|----------------|
-|PUT    | Creates or updates the resource being    |  Yes           |
-|       | PUT to                                   |                |
-|-------|------------------------------------------|----------------|
-|DELETE | DELETES the resource                     |  Yes           |
-|-------|------------------------------------------|----------------|
-|HEAD   | Gets metadata about the resource         |  Yes           |
-
 
