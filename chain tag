@@ -4,12 +4,16 @@ To manage the life-cycles of an entire array of *cogs*, one can use the *chain* 
 
 With *chains*, a series of cogs based on one url are mapped to the keys (or indices) of a source array of data. Data is injected into each via the *chain's* item attribute.
 
-Other options help control how these cogs are layered and applied to the DOM.
+Other options can help to control how these *cogs* are layered and applied to the DOM.
 
 ### Chain Tag Examples
 
 ```html
-  
+<chain find="body" source="records" item="record" url="row.html" prop="true" depth="true" />
+<chain find="holder" url="COMBO_BOX" source="prop filters" item="config filter" />
+<chain find="list" url="list.html" path="LAYOUTS" source="cats" item="item" key="cat_id" />
+<chain find="content" source="people" item="prop dude" url="guy.html" build="sort" />
+<chain find="blogroll" source="run getBloggers" url="blogger.html" order="true" />
 ```
 
 ### Chain Tag Attributes
