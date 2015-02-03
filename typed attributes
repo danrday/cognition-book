@@ -62,5 +62,47 @@ This *cog* would resolve its 'url' based on the result of calling the function '
 
 Likewise, *data* tags can run a function to set their initial value.
 
+## number
+
+The *number* type attempts to cast and store a value as a Javascript Number. 
+
+```html
+<data name="retryCount" value="number 3" />
+<data name="roughlyE" value="number 2.718" />
+```
+
+Most attributes would store the number as a 'string' without this specification.
+
+## boolean
+
+The *boolean* type results in a stored boolean value of true or false. It expects strings of 'true' or 'false' as inputs.
+
+```html
+<data name="isBigScreen" value="bool true" />
+<data name="isSmallScreen" value="bool false" />
+```
+
+Note: This is generally not needed -- see the *auto* type.
+
+## index
+
+The *index* type signifies that an array index will be used and requires no further naming specifics.
+It is currently only used as a default setting for the *key* attribute in *chain* tags.
+
+## auto
+
+The *auto* type stores most values as strings but will convert 'true', 'false' and 'null' to their non-string counterparts; this is the default type for the value attribute of *data* tags.
+
+```html
+<data name="isBigScreen" value="true" />
+<data name="isSmallScreen" value="false" />
+<data name="selectedTV" value="null" />
+```
+
+Note: to store these values explicitly as strings, use 'string true', 'string false' or 'string null'.
+
+ 
+
+
  
 
