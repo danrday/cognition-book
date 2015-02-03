@@ -1,2 +1,5 @@
 ## Motor
 
+The *motor* tag is not yet implemented.
+
+The *motor* tag provides a way to drive writes and function calls at various times and intervals. 

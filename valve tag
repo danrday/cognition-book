@@ -1,3 +1,5 @@
 ## Valve
 
 The *valve* tag is not yet implemented.
+
+The *valve* tag lets one sandbox portions of the *cog* hierarchy. It provides a communications 'white-list' such that descendant *cogs* cannot affect things such as *feeds* or *data* locations that exist above the *valve*.
