@@ -1,6 +1,6 @@
 # Typed Attributes
 
-Some tag attributes support a type prefix to allow for more complexity (or even clarity). Typed attribute values are preceded by a type name and a space. 
+Some tag attributes support a type prefix to allow for more complexity (or even clarity). Typed attribute values are preceded by a type name and a space. The *data* type, in particular, will also create *sensors* to dynamically bind the value.
 
 ## Auto
 
@@ -71,7 +71,7 @@ The *prop* type reads a property from the current *cog's* script declaration. Th
 <data name="appSettings" value="prop defaultSettings" />
 ```
 
-*Data* tags can use the *prop* type to easily initialize complex values such as objects or arrays.
+*Data* tags can use the *prop* type to initialize complex values such as objects or arrays.
 
 ## Run
 
