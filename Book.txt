@@ -1,4 +1,7 @@
+design goals
 design philosophy
+the catbus
+the framework
 typed attributes
 tag reference
 alias tag
