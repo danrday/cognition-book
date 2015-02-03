@@ -4,6 +4,7 @@ tag reference
 alias tag
 chain tag
 cog tag
+config tag
 data tag
 feed tag
 hoist tag

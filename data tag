@@ -21,10 +21,10 @@ The *data* tag creates a named location owned and governed by the *cog* in which
 |-----------|--------------|-----------|-----------|
 |name| A unique name within the containing *cog* by which this *data* location may be referenced. | Yes | none |
 |-----------|--------------|-----------|-----------|
-|value|  The initial value to be stored within this *data* location. By default, no value is assigned and it would read as undefined. Unless specified as a 'string' type, primitive values in the tag are automatically converted to true, false and null. | No | *auto-primitive*, string, data, prop, run, config |
+|value|  The initial value to be stored within this *data* location. By default, no value is assigned and it would read as undefined. Unless specified as a 'string' type, primitive values in the tag are automatically converted to true, false and null. | No | *auto*, string, data, prop, run, config |
 |-----------|--------------|-----------|-----------|
 |inherit|  Set the inherit flag to true to override the initial set value with the value of a *data* location of the same name if there is a match higher up the *cog* hierarchy. | No | none |
 |-----------|--------------|-----------|-----------|
-|prop|  Set the prop flag to true to expose the *data* location object as a property in the *cog's* script declaration. | No | *prop*, data, run, config |
+|prop|  Set the prop flag to true to expose the *data* location object as a property in the *cog's* script declaration. | No | none |
 
 

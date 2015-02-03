@@ -6,6 +6,8 @@ The *feed* tag creates an instance of a communication service -- referencing a *
 
 ```html
 <feed service="friendsOfCat" />
+<feed service="currentWeather" name="weatherFeed" to="weatherData" prop="true" />
+<feed service="friendsOfCat" request="true" />
 ```
 
 ### Feed Tag Attributes
