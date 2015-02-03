@@ -1,8 +1,9 @@
-# typed attributes
+# Typed Attributes
 
 Some tag attributes support a type prefix to allow for more complexity (or even clarity). Typed attribute values are preceded by a type name and a space.
 
-For example, a *cog* can load various URLs dynamically by using a *url* attribute typed as *data*.
+### data
+A *cog* can load various URLs dynamically by using a *url* attribute typed as *data*.
 
 ```html
 <cog find="holder" url="data currentPage" />
@@ -10,14 +11,31 @@ For example, a *cog* can load various URLs dynamically by using a *url* attribut
 
 In this case, the DOM element with an *id* of *holder* would always contain a *cog* whose URL was obtained from a *data* tag named currentPage. If the value of currentPage changed, a new *cog* would be loaded, replacing the prior one, using the value of currentPage as its URL.
 
+### config
+
+A config attribute will be resolved upon instantiation and does not respond to changes; it's a once and done setup variable.
+
 ```html
 <cog find="holder" url="config currentPage" />
 ```
 
-A config attribute will be resolved upon instantiation and does not respond to changes; it's a once and done setup variable. 
+In this example, the *cog* will load whatever URL string is contained within the *config* option named currentPage.
 
+### string
 
+For *cogs*, the default type for the 'url' attribute is 'string'.
 
+```html
+<cog find="holderA" url="cats_of_the_world.html" />
+<cog find="holderB" url="string cats_of_the_world.html" />
+```
 
+These example statements are thus equivalent. They would both load 'cats_of_the_world.html'.
+
+### prop
+
+```html
+<cog find="holder" url="string cats_of_the_world.html" />
+```
 
 
