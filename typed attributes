@@ -101,13 +101,18 @@ For *cogs*, the default type for the 'url' attribute is 'string'.
 
 These example statements are thus equivalent. They would both load 'cats_of_the_world.html' with the full path being relative to the location of the *cog* file containing this code.
 
+ For *data* locations, the default type is auto -- meaning that 'true', 'false' and 'null' would be converted to non-strings. 
 
+```html
+<data name="trulyTrue" value="true" /> <!-- true -->
+<data name="stringTrue" value="string true" />  <!-- 'true' -->
+<data name="trulyNull" value="null" />  <!-- null -->
+<data name="stringNull" value="string null" /> <!-- 'null' -->
+<data name="stringString" value="string string" /> <!-- 'string' -->
+<data name="justCat" value="string cat" /> <!-- 'cat' -->
+<data name="aStringCat" value="string string cat" /> <!-- 'string cat' -->
+```
 
-
-
-
-
- 
 
 
  

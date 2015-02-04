@@ -4,11 +4,13 @@ In general, frameworks get a pretty bad rap. They are bemoaned from one side for
 
 What begins as an application's foundation can, in the end, become its cage. More time is spent 'working around the framework' than is gained through its presence. Absolutely no one wants to be in this situation.
 
-Every application of sufficient complexity and scope has a framework. The framework is just 'the how' and 'the why' and 'the glue' holding an application together. Sometimes, it makes sense to build exactly what you need; the framework and the application become nearly indistinguishable beasts. Many frameworks, like Python's Django, begin as custom applications -- and their most appropriate use-cases often reflect their origins.
+Every application of sufficient complexity and scope has a framework. The framework is just 'the how' and 'the why' and 'the glue' holding an application together. Sometimes, it makes sense to build exactly what you need; the framework and the application become nearly indistinguishable beasts. Many frameworks, like Python's Django, began as custom applications -- and their most appropriate use-cases often reflect their origins.
 
 Off-the-shelf frameworks only work when the design goals of the framework are in solid alignment with the actual needs of an application. Even the best written, most professional and elegant of frameworks will be detrimental to a project if each seeks a separate purpose.
 
-The *Cognition* framework has a very specific set of design goals and interests. First and foremost, it is tailored for the creation of large, sprawling single-page web-applications, i.e. the kind of thing you're likely to find on a corporate intranet. 
+The *Cognition* framework has a very specific set of design goals and interests. First and foremost, it is tailored for the creation of large, sprawling single-page web applications, i.e. the kind of thing you're likely to find on a corporate intranet. 
+
+*Cognition* is a completely client-side framework; it has no server-side rendering options.  It enforces a strict reliance on a service-oriented architecture. 
 
 It is able to load and unload tons of random sub-sites from all over. It assumes that programmers are fallible and messy and makes an honest attempt to clean things up. If one group wants to use Kendo components and another wants to visualize things in D3, it gives them the leeway to use their preferred tools. It caters to large teams -- as they can encapsulate functionality completely within their modules. And it handles routing and deep-linking somewhat automatically.
 
