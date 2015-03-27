@@ -1,6 +1,6 @@
 # Development Philosophy
 
-composition 
+composition gang of four
 
  
 
@@ -11,8 +11,16 @@ embrace fallibility
 frameworks should do their best to stay out of your way, providing minimal limits on creativity.
 they should handle the things that are onerous, that are easy to screw up, the things that can have hidden consequences.
 
-1. timing is buggy, avoid it
-2. one way data flow
-3. clean up 
+
+resource contention -- not ioc, command clear military hierarchy, ambiguous leadership kind of bites 
+file management 
+house cleaning and the state of my listeners
+race conditions
+error handling
+encapsulation and coupling -- pipes and valves
+
+rogue pragmatism
+dependency declaration
+
 
  

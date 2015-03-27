@@ -8,17 +8,13 @@ Every application of sufficient complexity and scope has a framework. The framew
 
 Off-the-shelf frameworks only work when the design goals of the framework are in solid alignment with the actual needs of an application. Even the best written, most professional and elegant of frameworks will be detrimental to a project if each seeks a separate purpose.
 
-The *Cognition* framework has a very specific set of design goals and interests. First and foremost, it is tailored for the creation of large, sprawling single-page web applications, i.e. the kind of thing you're likely to find on a corporate intranet. 
+The *Cognition* framework has a very specific set of design goals and interests. First and foremost, it is tailored for the creation of large, sprawling single-page web applications, i.e. the kind of thing you're likely to find on a corporate intranet.  
 
-*Cognition* is a completely client-side framework; it has no server-side rendering options.  It enforces a strict reliance on a service-oriented architecture. 
+*Cognition* is a completely client-side framework;  it has no server-side rendering options.  It enforces a strict reliance on a service-oriented architecture. 
 
-It is able to load and unload tons of random sub-sites from all over. It assumes that programmers are fallible and messy and makes an honest attempt to clean things up. If one group wants to use Kendo components and another wants to visualize things in D3, it gives them the leeway to use their preferred tools. It caters to large teams -- as they can encapsulate functionality completely within their modules. And it handles routing and deep-linking somewhat automatically.
+It assumes that programmers are fallible and messy and makes an honest attempt to clean things up. If one group wants to use Kendo components and another wants to visualize things in D3, it gives them the leeway to use their preferred tools. It caters to large teams -- as they can encapsulate functionality completely within their modules -- and limit the access of modules they load. And it handles routing and deep-linking more or less automatically.
 
 But *Cognition* does not handle SEO. Search engines are nearly blind to *Cognition* applications. Public, consumer-facing websites that desire the intrusion of web crawlers and ninja bots are not well served by this framework. Page rank will not be theirs.
 
 *Cognition* also requires modern ES5-capable browsers. No attempt has been made to sustain legacy systems. This simplifies the code-base and opens up a bevy of technical options and browser features. But it does completely preclude support for older browser environments. 
-
-
-
-
 
