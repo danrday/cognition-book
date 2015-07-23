@@ -1,18 +1,28 @@
 ## Prop
 
+The *prop* tag exposes a property defined above the current *cog* component within the current script definition. In short, it lets one reference a *data* location, *alias* or *config* within Javascript such that the name of the property is added to the *this* within a *cog*'s script. 
+
+### Prop Tag Examples
+
+```html
+   <prop find="currentUser" />
+   <prop find="temperature" is="data" where="last" />   
+   <prop find="defaultStation" is="config" name="station" />
+   <prop find="phoneNum" name="phNum" />
+   <prop find="address2" optional="true" />
+```
+
+### Prop Tag Attributes
+
+|Name | Description | Required? | Types |  Options |
+|-----------|--------------|-----------|-----------|-----------|
+|find| The name of the *blueprint* property to find. | Yes | none | |
+|-----------|--------------|-----------|-----------|-----------|
+|name| A local name used to expose the property on the current script. This defaults to the 'find' value. | No | none | |
+|-----------|--------------|-----------|-----------|-----------|
+|is|  The *blueprint* tag type to find | No | none | *data*, alias, config |
+|-----------|--------------|-----------|-----------|-----------|
+|where|  Where to search for the given tag name. 'first': looks locally and goes up the *cog* tree, returning the first match. 'parent': like 'first' but skips the 'local' cog. 'outer': returns the second match. 'last': returns the highest, final match in the *cog* hierarchy.  | No | none | *first*, parent, outer, last |
+|-----------|--------------|-----------|-----------|-----------|
 
 
-
-
-function extractPropDef(sel){
-
-    var d = {
-        find: extractString(sel, 'find'),
-        thing: extractString(sel, 'is', 'data'),
-        where: extractString(sel, 'where', 'first'),
-        optional: extractBool(sel, 'optional'),
-        name: extractString(sel, 'name')
-    };
-
-    d.name = d.name || d.find;
-    return d;

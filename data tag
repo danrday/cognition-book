@@ -1,6 +1,6 @@
 ## Data
 
-The *data* tag creates a named location owned and governed by the *cog* in which it is declared. Its name is required to be unique only within this cog. The containing cog and its descendants can read, write and subscribe via *sensors* to the data contained within it. Parent cogs have no direct access to the *data* contained within their children by design. 
+The *data* tag creates a named location owned and governed by the *cog* in which it is declared. Its name is required to be unique only within this cog. The containing cog and its descendants can read, write and subscribe via *sensors* to the data contained within it. Child *cogs* can reference *data* locations above themselves by using the *prop* tag. Parent cogs have no direct access to the *data* contained within their children by design. 
 
 ### Data Tag Examples
 

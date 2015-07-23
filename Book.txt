@@ -9,9 +9,9 @@ chain tag
 cog tag
 config tag
 data tag
-hoist tag
 preload tag
 prop tag
 require tag
 sensor tag
 valve tag
+wire tag

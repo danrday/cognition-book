@@ -1,0 +1,19 @@
+## Wire
+
+The *wire* tag includes additional *blueprint* and *script* functionality on (as if just above) the *cog* in which it is declared. *Wires* can act as libraries or state machines and do not use the *display* declaration. They can currently be stacked -- but not nested within other *wires* (yet).
+
+### Wire Tag Examples
+
+```html
+<wire url="menuStateMachine.html" />
+<wire url="supplyChainFeed.html" path="APP_FEEDS" />
+```
+
+### Wire Tag Attributes
+
+|Name | Description | Required? | Types |
+|-----------|--------------|-----------|-----------|
+|url|  A relative or absolute path to a file containing a *wire* definition that implements *script* and/or *blueprint* declarations. Wires are like *cogs* without *display* declarations. | Yes | *string*, data |
+|-----------|--------------|-----------|-----------|
+|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. | No | none |
+
