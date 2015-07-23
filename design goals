@@ -12,9 +12,9 @@ The *Cognition* framework has a very specific set of design goals and interests.
 
 *Cognition* is a completely client-side framework;  it has no server-side rendering options.  It enforces a strict reliance on a service-oriented architecture. 
 
-It assumes that programmers are fallible and messy and makes an honest attempt to clean things up. If one group wants to use Kendo components and another wants to visualize things in D3, it gives them the leeway to use their preferred tools. It caters to large teams -- as they can encapsulate functionality completely within their modules -- and limit the access of modules they load. And it handles routing and deep-linking more or less automatically.
+It assumes that programmers are fallible and messy and makes an honest attempt to clean things up. If one group wants to use 3rd party components and another wants to visualize things in D3, it gives them the leeway to use their preferred tools. It caters to large teams -- as they can encapsulate functionality completely within their modules -- and limit the access of modules they load. And it handles routing and deep-linking more or less automatically.
 
-But *Cognition* does not handle SEO. Search engines are nearly blind to *Cognition* applications. Public, consumer-facing websites that desire the intrusion of web crawlers and ninja bots are not well served by this framework. Page rank will not be theirs.
+*Cognition* does not handle SEO. Search engines are currently nearly blind to *Cognition* applications. Public, consumer-facing websites that desire the nightly visitations of web crawlers and ninja bots are not well served by this framework. Page rank will not be theirs.
 
 *Cognition* also requires modern ES5-capable browsers. No attempt has been made to sustain legacy systems. This simplifies the code-base and opens up a bevy of technical options and browser features. But it does completely preclude support for older browser environments. 
 

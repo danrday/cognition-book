@@ -5,19 +5,19 @@ The *cog* tag embeds a visible *cog* component within the HTML display of the cu
 ### Cog Tag Examples
 
 ```html
-   <cog find="header" url="HEADER"  />
-   <cog find="panel" url="panel.html" path="core/components"  />  
-   <cog find="alert" url="../../indicators/alert.html" />
-   <cog find="page" url="data currentPage" path="PAGES"  />
-   <cog find="status" source="run getStatus" item="config status" url="status.html" />
-   <cog find="footer" and="prepend" url="FOOTER"  />
+   <cog id="header" url="HEADER"  />
+   <cog id="panel" url="panel.html" path="core/components"  />  
+   <cog id="alert" url="../../indicators/alert.html" />
+   <cog id="page" url="data currentPage" path="PAGES"  />
+   <cog id="status" source="run getStatus" item="config status" url="status.html" />
+   <cog id="footer" and="prepend" url="FOOTER"  />
 ```
 
 ### Cog Tag Attributes
 
 |Name | Description | Required? | Types |
 |-----------|--------------|-----------|-----------|
-|find| The DOM element id used as placeholder by the *cog*. | Yes | none |
+|id| The DOM element id used as placeholder by the *cog*. | Yes | none |
 |-----------|--------------|-----------|-----------|
 |url|  A relative or absolute path to a file containing a *cog* definition with at least a display declaration. | Yes | *string*, data |
 |-----------|--------------|-----------|-----------|
@@ -27,5 +27,5 @@ The *cog* tag embeds a visible *cog* component within the HTML display of the cu
 |-----------|--------------|-----------|-----------|
 |item|  The name of the storage item created within the loaded cog to hold its configuration; it defaults to a *config* attribute named 'item'. | No | *config*, data, prop, run |
 |-----------|--------------|-----------|-----------|
-|and|  The DOM method used to place the *cog* relative to the placeholder identified by the *find* attribute. Defaulting to 'append', other options include 'prepend', 'before', 'after', and 'replace'. | No | none |
+|and|  The DOM method used to place the *cog* relative to the placeholder identified by the *id* attribute. Defaulting to 'append', other options include 'prepend', 'before', 'after', and 'replace'. | No | none |
 

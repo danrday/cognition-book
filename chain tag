@@ -20,7 +20,7 @@ Other options can help to control how these *cogs* are layered and applied to th
 
 |Name | Description | Required? | Types |
 |-----------|--------------|-----------|-----------|
-|find| The DOM element id used as placeholder by the *chain*. | Yes | none |
+|id| The DOM element id used as placeholder by the *chain*. | Yes | none |
 |-----------|--------------|-----------|-----------|
 |url|  A relative or absolute path to a file containing a *cog* definition with at least a display declaration. Used by every *cog* in the chain. | Yes | none |
 |-----------|--------------|-----------|-----------|
