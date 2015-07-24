@@ -1,6 +1,6 @@
 ## Prop
 
-The *prop* tag exposes a property defined above the current *cog* component within the current script definition. In short, it lets one reference a *data* location, *alias* or *config* within Javascript such that the name of the property is added to the *this* within a *cog*'s script. 
+The *prop* lets one reference a *data* location, *alias* or *config* within Javascript such that the name of the property is added to the *this* within a *cog*'s script. It is used to expose and access properties  defined in *cogs* above the current one.
 
 ### Prop Tag Examples
 

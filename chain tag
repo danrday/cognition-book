@@ -1,8 +1,8 @@
 ## Chain
 
-To manage the life-cycles of an entire array of *cogs*, one can use the *chain* tag. It is inspired heavily by D3.js's system of mapping DOM nodes to discrete data elements with enter, update and exit events.
+To manage the life-cycles of an entire array of '''<cog>'''s, one can use the *chain* tag. It is inspired heavily by D3.js's system of mapping DOM nodes to discrete data elements with enter, update and exit events.
 
-With *chains*, a series of cogs based on one url are mapped to the keys (or indices) of a source array of data. Data is injected into each via the *chain's* item attribute.
+With *chains*, a series of cogs based on one url are mapped to the keys (or indices) of a source array of data. Data is injected into each via the *chain*'s item attribute.
 
 Other options can help to control how these *cogs* are layered and applied to the DOM.
 
