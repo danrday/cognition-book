@@ -1,8 +1,8 @@
 ## Chain
 
-Manages arrays of *cogs*. It is inspired heavily by D3.js's system of mapping DOM nodes to discrete data elements with enter, update and exit events.
+Manages arrays of **cogs**. It is inspired heavily by D3.js's system of mapping DOM nodes to discrete data elements with enter, update and exit events.
 
-With *chains*, a series of cogs are created based on one url. They are mapped to the keys (or indices) of a source array of data via the 'from' attribute. Data is injected into each via the *chain*'s 'to' attribute.
+With **chains**, a series of cogs are created based on one url. They are mapped to the keys (or indices) of a source array of data via the 'from' attribute. Data is injected into each via the **chain**'s 'to' attribute.
 
 Other options can help to control how these **cogs** are layered and applied to the DOM.
 
@@ -20,22 +20,22 @@ Other options can help to control how these **cogs** are layered and applied to 
 
 |Name | Description | [Types] & Options |
 |-----------|--------------|-----------|
-|**_id_**| The DOM element id used as placeholder by the **chain**. | |
+|**id**| The DOM element id used as placeholder by the **chain**. | |
 |-----------|--------------|-----------|
-|**_url_**|  A relative or absolute path to a file containing a **cog** definition with at least a display declaration. Used by every **cog** in the chain. |  |
+|**url**|  A relative or absolute path to a file containing a **cog** definition with at least a display declaration. Used by every **cog** in the chain. |  |
 |-----------|--------------|-----------|
-|**_from_**|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named *data* tag. | [*data*, prop, run, config] |
+|**from**|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named **data** tag. | [*data*, prop, run, config] |
 |-----------|--------------|-----------|
-|to|  The data item created within each cog created from the source array. By default, it builds a *data* tag named 'item' that is wired back to the source data. | [*data* item, prop, run, config] |
+|to|  The data item created within each cog created from the source array. By default, it builds a **data** tag named 'item' that is wired back to the source data. | [*data* item, prop, run, config] |
 |-----------|--------------|-----------|
-|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. |  |
+|path|  A directory used as a prefix for the url attribute. It can be an actual path or the name of another **alias** defined previously. |  |
 |-----------|--------------|-----------|
 |key|  A way to identify data elements that persist across source changes. An item's index in the source array is used by default. An object property name or a method to compute a key (function(data) { ... return key; } can be used as key values. | [*index*, string, prop, run, config] |
 |-----------|--------------|-----------|
-|build|  By default, build is set to 'append', and will append new elements into the *chain's* container. Use 'scratch' to destroy and rebuild with each change to the data source. Or use 'sort' to rearrange nodes to match their order in the source array. | *append*, scratch,  or sort |
+|build|  By default, build is set to 'append', and will append new elements into the node containing the **chain**. Use 'scratch' to destroy and rebuild with each change to the data source. Use 'sort' to rearrange nodes to match their order in the source array. | *append*, scratch,  or sort |
 |-----------|--------------|-----------|
-|order|  If set to 'true', the order flag will apply the CSS order style on each *cog* in the *chain* using the source array's index values. | true, false |
+|order|  The order attribute applies the CSS order style to each **cog** in the **chain** using the source array's index values. | true, false |
 |-----------|--------------|-----------|
-|depth|  If set to 'true', the depth flag will apply the CSS z-index style on each *cog* in the *chain* using the source array's index values.  | true, false |
+|depth|  The depth attribute applies the CSS z-index style to each *cog* in the *chain* using the source array's index values.  | true, false |
 |-----------|--------------|-----------|
 

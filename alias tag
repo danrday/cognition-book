@@ -1,14 +1,14 @@
 ## Alias
 
-TLDR: For your project, use this to safely move directories around, rename files, flip between versions of code, refactor all the things. Update an *alias* or two and it all still works!
+TLDR: For your project, use this to safely move directories around, rename files, flip between versions of code, or refactor all the things. Update an **alias** or two and it all still works!
 
-The *alias* tag provides a way to create references to specific URLs. Each of these can reference a parent *alias* via their path attribute in order to construct cascading paths, similar to a poor man's C macro. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
+The **alias** tag provides a way to create references to specific URLs. Each of these can reference a parent **alias** via their path attribute in order to construct cascading paths. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
 
 Other cognition tags with url or path attributes can use alias names as values to handle file path resolution.
 
-Using *alias* tags, one can rearrange the directory structure of an existing application without modifying the underlying code. 
+Using **alias** tags, one can rearrange the directory structure of an existing application without modifying the underlying code. 
 
-For clarity (and as a nod to constants and macros), the name attributes of *alias* tags are always fully capitalized with underscores between words by convention.  
+The name attributes of **alias** tags are always fully capitalized with underscores between words by convention.  
 
 ### Alias Tag Examples
 
@@ -22,12 +22,12 @@ For clarity (and as a nod to constants and macros), the name attributes of *alia
 
 ### Alias Tag Attributes
 
-|Name | Description | Required? |
+|Name | Description |
+|-----------|--------------|
+|**name**| The actual string used to reference the alias. | 
 |-----------|--------------|-----------|
-|name| The actual string used to reference the alias. | Yes | 
+|**url**|  A relative or absolute path to an actual file or directory. |
 |-----------|--------------|-----------|
-|url|  A relative or absolute path to an actual file or directory. | Yes |
-|-----------|--------------|-----------|
-|path|  A directory used as a prefix for the *url* attribute. It can be an actual relative or absolute path or the name of another *alias* defined previously. They can be chained together such that a change to a root *alias* can affect how every dependent *alias* resolves. | No |
+|path|  A directory used as a prefix for the *url* attribute. It can be an actual relative or absolute path or the name of another *alias* defined previously. They can be chained together such that a change to a root *alias* can affect how every dependent *alias* resolves. | 
 
 
