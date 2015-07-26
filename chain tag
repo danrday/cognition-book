@@ -4,7 +4,7 @@ Manages arrays of *cogs*. It is inspired heavily by D3.js's system of mapping DO
 
 With *chains*, a series of cogs are created based on one url. They are mapped to the keys (or indices) of a source array of data via the 'from' attribute. Data is injected into each via the *chain*'s 'to' attribute.
 
-Other options can help to control how these *cogs* are layered and applied to the DOM.
+Other options can help to control how these **cogs** are layered and applied to the DOM.
 
 ### Chain Tag Examples
 
@@ -20,11 +20,11 @@ Other options can help to control how these *cogs* are layered and applied to th
 
 |Name | Description | [Types] & Options |
 |-----------|--------------|-----------|
-|*id*| The DOM element id used as placeholder by the *chain*. | |
+|**_id_**| The DOM element id used as placeholder by the **chain**. | |
 |-----------|--------------|-----------|
-|*url*|  A relative or absolute path to a file containing a *cog* definition with at least a display declaration. Used by every *cog* in the chain. |  |
+|**_url_**|  A relative or absolute path to a file containing a **cog** definition with at least a display declaration. Used by every **cog** in the chain. |  |
 |-----------|--------------|-----------|
-|*from*|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named *data* tag. | [*data*, prop, run, config] |
+|**_from_**|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named *data* tag. | [*data*, prop, run, config] |
 |-----------|--------------|-----------|
 |to|  The data item created within each cog created from the source array. By default, it builds a *data* tag named 'item' that is wired back to the source data. | [*data* item, prop, run, config] |
 |-----------|--------------|-----------|
