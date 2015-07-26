@@ -11,31 +11,31 @@ Other options can help to control how these *cogs* are layered and applied to th
 ```html
 <chain id="body" from="records" to="record" url="row.html" depth="true" />
 <chain id="holder" from="prop filters" to="config filter" url="COMBO_BOX" />
-<chain id="list" url="list.html" path="LAYOUTS" from="cats" to="item" key="cat_id" />
+<chain id="list" from="cats" to="item" path="LAYOUTS" url="list.html" key="cat_id" />
 <chain id="content" from="people" to="prop dude" url="guy.html" build="sort" />
 <chain id="blogroll" from="run getBloggers" url="blogger.html" order="true" />
 ```
 
 ### Chain Tag Attributes
 
-|Name | Description | Required? | Types | Options |
-|-----------|--------------|-----------|-----------|-----------|
-|id| The DOM element id used as placeholder by the *chain*. | Yes | | |
-|-----------|--------------|-----------|-----------|-----------|
-|url|  A relative or absolute path to a file containing a *cog* definition with at least a display declaration. Used by every *cog* in the chain. | Yes | | |
-|-----------|--------------|-----------|-----------|-----------|
-|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. | | | |
-|-----------|--------------|-----------|-----------|-----------|
-|from|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named *data* tag. | Yes | *data*, prop, run, config | |
-|-----------|--------------|-----------|-----------|-----------|
-|to|  The data item created within each cog created from the source array. By default, it builds a *data* tag named 'item' that is wired back to the source data. | | *data* item, prop, run, config | |
-|-----------|--------------|-----------|-----------|-----------|
-|key|  A way to identify data elements that persist across source changes. An item's index in the source array is used by default. An object property name or a method to compute a key (function(data) { ... return key; } can be used as key values. | | *index*, string, prop, run, config | |
-|-----------|--------------|-----------|-----------|-----------|
-|build|  By default, build is set to 'append', and will append new elements into the *chain's* container. Use 'scratch' to destroy and rebuild with each change to the data source. Or use 'sort' to rearrange nodes to match their order in the source array. | | | *append*, scratch, sort |
-|-----------|--------------|-----------|-----------|-----------|
-|order|  If set to 'true', the order flag will apply the CSS order style on each *cog* in the *chain* using the source array's index values. | | | |
-|-----------|--------------|-----------|-----------|-----------|
-|depth|  If set to 'true', the depth flag will apply the CSS z-index style on each *cog* in the *chain* using the source array's index values.  | | | |
-|-----------|--------------|-----------|-----------|-----------|
+|Name | Description | [Types] & Options |
+|-----------|--------------|-----------|
+|*id*| The DOM element id used as placeholder by the *chain*. | |
+|-----------|--------------|-----------|
+|*url*|  A relative or absolute path to a file containing a *cog* definition with at least a display declaration. Used by every *cog* in the chain. |  |
+|-----------|--------------|-----------|
+|*from*|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named *data* tag. | [*data*, prop, run, config] |
+|-----------|--------------|-----------|
+|to|  The data item created within each cog created from the source array. By default, it builds a *data* tag named 'item' that is wired back to the source data. | [*data* item, prop, run, config] |
+|-----------|--------------|-----------|
+|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. |  |
+|-----------|--------------|-----------|
+|key|  A way to identify data elements that persist across source changes. An item's index in the source array is used by default. An object property name or a method to compute a key (function(data) { ... return key; } can be used as key values. | [*index*, string, prop, run, config] |
+|-----------|--------------|-----------|
+|build|  By default, build is set to 'append', and will append new elements into the *chain's* container. Use 'scratch' to destroy and rebuild with each change to the data source. Or use 'sort' to rearrange nodes to match their order in the source array. | *append*, scratch,  or sort |
+|-----------|--------------|-----------|
+|order|  If set to 'true', the order flag will apply the CSS order style on each *cog* in the *chain* using the source array's index values. | true, false |
+|-----------|--------------|-----------|
+|depth|  If set to 'true', the depth flag will apply the CSS z-index style on each *cog* in the *chain* using the source array's index values.  | true, false |
+|-----------|--------------|-----------|
 
