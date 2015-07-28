@@ -1,6 +1,8 @@
 ## Cog
 
-The *cog* tag embeds a visible *cog* component within the HTML display of the current *cog*, loading (lazy-style) into (or about) the DOM container referenced by its *id* attribute. 
+TLDR: The core component of the Cognition framework. Put **cogs** within **cogs** to build an application as a big nested tree (it's turtles all the way down). Each **cog** is constructed from a file containing a **display** tag and optional **blueprint** and **script** tags. 
+
+The **cog** tag embeds a visible **cog** component within the HTML display of the current **cog**, loading (lazy-style) into (or about) the DOM container referenced by its 'id' attribute. 
 
 ### Cog Tag Examples
 
@@ -15,17 +17,17 @@ The *cog* tag embeds a visible *cog* component within the HTML display of the cu
 
 ### Cog Tag Attributes
 
-|Name | Description | Required? | Types |
-|-----------|--------------|-----------|-----------|
-|id| The DOM element id used as placeholder by the *cog*. | Yes | none |
-|-----------|--------------|-----------|-----------|
-|url|  A relative or absolute path to a file containing a *cog* definition with at least a display declaration. | Yes | *string*, data |
-|-----------|--------------|-----------|-----------|
-|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. | No | none |
-|-----------|--------------|-----------|-----------|
-|source|  The name of the data source used to construct the cog, generally an options object. | No | *prop*, data, run, config |
-|-----------|--------------|-----------|-----------|
-|item|  The name of the storage item created within the loaded cog to hold its configuration; it defaults to a *config* attribute named 'item'. | No | *config*, data, prop, run |
-|-----------|--------------|-----------|-----------|
-|and|  The DOM method used to place the *cog* relative to the placeholder identified by the *id* attribute. Defaulting to 'append', other options include 'prepend', 'before', 'after', and 'replace'. | No | none |
+|Name | Description | [Types] & Options |
+|-----------|--------------|-----------|
+|**id**| The DOM element id used as placeholder or reference point by the **cog**. | |
+|-----------|--------------|-----------|
+|**url**|  A relative or absolute path to a file containing a **cog** definition with at least a **display** declaration. | [*string*, prop, data, run, config] |
+|-----------|--------------|-----------|
+|path|  A directory used as a prefix for the 'url' attribute. It can be an actual path or the name of another **alias** defined previously. |  |
+|-----------|--------------|-----------|
+|from|  The data source or configuration injected into the **cog**, generally an options object in the defined in the *script* tag. | *prop*, data, run, config |
+|-----------|--------------|-----------|
+|to|  The name of the storage item dynamically created within the **cog** to hold its configuration; it defaults to a 'config' attribute named 'item'. | No | *config item*, data, prop, run |
+|-----------|--------------|-----------|
+|and|  The DOM method used to place the **cog** relative to the placeholder identified by the 'id' attribute. | *append*, prepend, before, after, replace  |
 

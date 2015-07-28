@@ -1,3 +1,26 @@
 ## Config
 
-The *config* tag is not yet implemented.
+TLDR: An immutable container for configuration data. Stores a value at creation and does not supports sensors or writes. Once and done.
+
+The *config* tag stores data in its containing *cog*. When accessed via a *prop* tag, the raw value stored in the *config* is returned. Note, *data* tags differ in that they provide an interface with read and write access. *Config* tags are intended to provide static, unchanging data.
+
+### Cog Tag Examples
+
+```html
+   <config name="environment" value="production" inherit="true"  />
+   <config name="friendList" value="run getFriendList"  />
+   <config name="user" value="data currentUser"  />
+```
+
+### Cog Tag Attributes
+
+|Name | Description | [Types] & Options |
+|-----------|--------------|-----------|
+|**name**| The configuration property declared. |  |
+|-----------|--------------|-----------|
+|**value**|  The associated value of this configuration.  | [auto] |
+|-----------|--------------|-----------|
+|inherit|  If a *config* of the same name exists higher in the *cog* hierarchy, the value will be inherited, overriding the value attribute specified locally. | true, false |
+
+
+

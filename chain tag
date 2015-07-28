@@ -2,7 +2,7 @@
 
 Manages arrays of **cogs**. It is inspired heavily by D3.js's system of mapping DOM nodes to discrete data elements with enter, update and exit events.
 
-With **chains**, a series of cogs are created based on one url. They are mapped to the keys (or indices) of a source array of data via the 'from' attribute. Data is injected into each via the **chain**'s 'to' attribute.
+With **chains**, a series of cogs are created based on one url. They are mapped to the keys (or indices) of a source array of data via the 'from' attribute. Data is injected into each via the **chain's** 'to' attribute.
 
 Other options can help to control how these **cogs** are layered and applied to the DOM.
 
@@ -36,6 +36,6 @@ Other options can help to control how these **cogs** are layered and applied to 
 |-----------|--------------|-----------|
 |order|  The order attribute applies the CSS order style to each **cog** in the **chain** using the source array's index values. | true, false |
 |-----------|--------------|-----------|
-|depth|  The depth attribute applies the CSS z-index style to each *cog* in the *chain* using the source array's index values.  | true, false |
+|depth|  The depth attribute applies the CSS z-index style to each **cog** in the **chain** using the source array's index values.  | true, false |
 |-----------|--------------|-----------|
 
