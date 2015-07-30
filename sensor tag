@@ -35,7 +35,7 @@
 |-----------|--------------|-----------|
 |filter| When the *sensor* receives new data, a function of the given name is invoked as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag) and it should return true in order to continue processing the data. If the filter method returns false, the incoming data will be silently ignored. | [string] |
 |-----------|--------------|-----------|
-|transform| When the *sensor* receives new data, a function of the given name is invoked as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag) and it should return true in order to continue processing the data. If the filter method returns false, the incoming data will be silently ignored. For 'batch' *sensors*, this currently applies the 'transform' method to the messages before they are batched. (Future versions might include something like 'arrive' and 'leave' methods to handle both outputs.)  | [bool] |
+|transform| When the *sensor* receives new data, a function of the given name is invoked as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag) and it should return true in order to continue processing the data. If the filter method returns false, the incoming data will be silently ignored. For 'batch' *sensors*, this currently applies the 'transform' method to the messages before they are batched. (Future versions might include something like 'arrive' and 'leave' as methods to handle both outputs.)  | [bool] |
 |-----------|--------------|-----------|
 |once| This flag will automatically destroy the *sensor* after firing a single time. | [bool] |
 |-----------|--------------|-----------|
