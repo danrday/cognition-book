@@ -1,6 +1,12 @@
 ## Sensor
 
-**TLDR**: Watches **data** locations as a subscriber. Fires output by invoking a 'run' method or piping a message to a **data** location with the 'pipe' name. Can do crazy stuff like transforms, filters, batching, etc.
+**TLDR**: Watches **data** locations as a subscriber. Fires output by invoking a 'run' method or piping a message to a **data** location with the 'pipe' name. Can do fun stuff like transforms, filters, batching, etc.
+
+**Sensors** detect events and data flows, acting as subscription instances that can gather, filter, transform and emit message data. 
+
+Using the 'watch' and/or 'need' attributes, **sensors** can monitor **data** locations by name. **Sensors** search for each **data** location in turn, checking the current **cog** and then walking up the **cog** hierarchy until a match is found. Note: the search pattern can be modified using the 'where' attribute. 
+
+With the 'node' attribute, a **sensor** can listen for DOM events on a node with a matching 'id' attribute in the **cog's display** declaration. Specify the event (such as 'click' or 'mouseup') using the 'on' attribute.
 
 ### Sensor Tag Examples
 
@@ -17,11 +23,11 @@
 
 |Name | Description | [Types] & Options |
 |-----------|--------------|-----------|
-|*watch*| A list of names referring to **data** tags (specifically, the 'tag' attribute of **data** locations) that the **sensor** will subscribe to. If multiple names are listed, the underlying bus will automatically merge and batch them. Anything listed in the 'need' attribute is added to the watch list as a union of the two (distinct by tag, i.e. no duplicate subscriptions). | [string (comma delimited)] |
+|**watch** (1)| A list of names referring to **data** tags (specifically, the 'tag' attribute of **data** locations) that the **sensor** will subscribe to. If multiple names are listed, the underlying bus will automatically merge and batch them. Anything listed in the 'need' attribute is added to the watch list as a union of the two (distinct by tag, i.e. no duplicate subscriptions). | [string (comma delimited)] |
 |-----------|--------------|-----------|
-|*need*| The 'need' attribute subscribes to **data** tags just like the 'watch' attribute, but prevents the **sensor** from firing (via 'run' or 'pipe') until it has received data from every listed tag. It requires fresh data from each named tag in order to fire again unless the 'retain' attribute is also used.  | [string (comma delimited)] |
+|**need** (1)| The 'need' attribute subscribes to **data** tags just like the 'watch' attribute, but prevents the **sensor** from firing (via 'run' or 'pipe') until it has received data from every listed tag. It requires fresh data from each named tag in order to fire again unless the 'retain' attribute is also used.  | [string (comma delimited)] |
 |-----------|--------------|-----------|
-|*node*| Finds a 'node' by 'id' in the *cog's* *display* and listens for the event specified by the 'on' attribute. Use the 'node' attribute in lieu of the 'watch' and 'need' attributes. The message passed via 'run' or 'pipe' will be the associated event object.  | [string] |
+|**node** (1)| Finds a 'node' by 'id' in the *cog's* *display* and listens for the event specified by the 'on' attribute. Use the 'node' attribute in lieu of the 'watch' and 'need' attributes. The message passed via 'run' or 'pipe' will be the associated event object.  | [string] |
 |-----------|--------------|-----------|
 |on| If the *sensor* is watching *data* tags using 'watch' and/or 'need', the 'on' attribute specifies a topic on the *data* location. Generally, the default setting of 'update' should suffice. For *sensors* using the 'node' attribute, 'on' should be set to a DOM event name, such as 'click' or 'mouseover'.  | [string] |
 |-----------|--------------|-----------|
@@ -29,9 +35,9 @@
 |-----------|--------------|-----------|
 |where|  Where to search for the given tag name(s). 'first': looks locally and goes up the **cog** tree, returning the first match. 'parent': like 'first' but skips the current **cog**. 'outer': returns the second match. 'last': returns the highest, final match in the **cog** hierarchy.  | *first*, parent, outer, last |
 |-----------|--------------|-----------|
-|*pipe*| When the **sensor** fires, writes to the 'first' **data** location found with the name specified by 'pipe'. The attributes 'pipe' or 'run' are the only output methods for **sensors** and are mutually exclusive. | [string] |
+|**pipe** (2)| When the **sensor** fires, writes to the 'first' **data** location found with the name specified by 'pipe'. The attributes 'pipe' or 'run' are the only output methods for **sensors** and are mutually exclusive. | [string] |
 |-----------|--------------|-----------|
-|*run*| When the *sensor* fires, runs a function of the given name as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag, sensor); the message argument contains the data being transferred and is typically the only argument needed. The attributes 'pipe' or 'run' are the only output methods for **sensors** and are mutually exclusive. | [string] |
+|**run** (2)| When the *sensor* fires, runs a function of the given name as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag, sensor); the message argument contains the data being transferred and is typically the only argument needed. The attributes 'pipe' or 'run' are the only output methods for **sensors** and are mutually exclusive. | [string] |
 |-----------|--------------|-----------|
 |filter| When the *sensor* receives new data, a function of the given name is invoked as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag) and it should return true in order to continue processing the data. If the filter method returns false, the incoming data will be silently ignored. | [string] |
 |-----------|--------------|-----------|
@@ -49,4 +55,7 @@
 |-----------|--------------|-----------|
 |batch| When data is received, the *sensor* will note it but not fire until the bus is flushed (which occurs via requestAnimationFrame). *Sensors* watching multiple *data* locations set 'batch' to true automatically. Note that any 'need' attributes must also be met in order for the **sensor** to fire.   | [bool] |
 |-----------|--------------|-----------|
+
+1) All **sensors** require something to watch, an input source,  be it a DOM 'node' or **data** location. 
+2) All **sensors** should produce an output; they can 'run' a method defined on their **cog** or 'pipe' messages to another **data** location.
 
