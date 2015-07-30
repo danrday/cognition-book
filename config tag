@@ -4,7 +4,7 @@ TLDR: A spot for immutable configuration data, storing a value only at creation.
 
 The *config* tag stores data in its containing *cog*. When accessed via a *prop* tag, the raw value stored in the *config* is returned. Note, *data* tags differ in that they provide an interface with read and write access. *Config* tags are intended to provide static, unchanging data.
 
-### Cog Tag Examples
+### Config Tag Examples
 
 ```html
    <config name="environment" value="production" inherit="true"  />
@@ -12,7 +12,7 @@ The *config* tag stores data in its containing *cog*. When accessed via a *prop*
    <config name="user" value="data currentUser"  />
 ```
 
-### Cog Tag Attributes
+### Config Tag Attributes
 
 |Name | Description | [Types] & Options |
 |-----------|--------------|-----------|

@@ -4,7 +4,7 @@ The **valve** tag lets one sandbox portions of the **cog** hierarchy. It provide
 
 A single **valve** can specify one or more permitted names and a single tag type. Multiple **valves** can be placed within a single **cog**, resulting in a white-list consisting of their union.  Tag types without any associated **valves** can be accessed without restriction.
 
-### Prop Tag Examples
+### Valve Tag Examples
 
 ```html
 
@@ -22,6 +22,4 @@ A single **valve** can specify one or more permitted names and a single tag type
 |-----------|--------------|-----------|
 |is|  The tag type to which the **valve** applies. | *data*, config, alias |
 |-----------|--------------|-----------|
-
-
 

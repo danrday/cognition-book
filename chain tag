@@ -36,6 +36,6 @@ Other options can help to control how these **cogs** are layered and applied to 
 |-----------|--------------|-----------|
 |order|  The order attribute applies the CSS order style to each **cog** in the **chain** using the source array's index values. | [bool] |
 |-----------|--------------|-----------|
-|depth|  The depth attribute applies the CSS z-index style to each **cog** in the **chain** using the source array's index values.  | [bool |
+|depth|  The depth attribute applies the CSS z-index style to each **cog** in the **chain** using the source array's index values.  | [bool] |
 |-----------|--------------|-----------|
 

@@ -2,11 +2,10 @@
 
 **TLDR**: Stores observable **data** with the **cog**.  Watched by **sensors**. 
 
-The **data** tag creates a named location owned and governed by the **cog** in which it is declared. Its name is required to be unique within the **cog**. The containing **cog** and its descendants can read, write and subscribe via **sensors** to the data contained within it. Child **cogs** can reference **data** locations above themselves by using the **prop** tag. Parent **cogs** have no direct access to the **data** contained within their children by design.  
-
 ### Sensor Tag Examples
 
 ```html
+
 <data name="currentPage" />
 
 ```
@@ -20,8 +19,11 @@ on — for topic ‘update’ default,,optional — bool for watch,where,pipe,ru
 |Name | Description | [Types] & Options |
 |-----------|--------------|-----------|
 |*watch*| A list of names referring to **data** tags (specifically, the 'tag' attribute of **data** locations) that the **sensor** will subscribe to. If multiple names are listed, the underlying bus will automatically merge and batch them. Anything listed in the 'need' attribute is added to the watch list as a union of the two (distinct by tag, i.e. no duplicate subscriptions). | [string (comma delimited)] |
+|-----------|--------------|-----------|
 |*need*| The 'need' attribute subscribes to **data** tags just like the 'watch' attribute, but prevents the **sensor** from firing (via 'run' or 'pipe') until it has received data from every listed tag. It requires fresh data from each named tag in order to fire again unless the 'retain' attribute is also used.  | [string (comma delimited)] |
 |-----------|--------------|-----------|
-
-
+|*node*| Finds a 'node' by 'id' in the *cog's* *display* and listens for the event specified by the 'on' attribute. Use the 'node' attribute in lieu of the 'watch' and 'need' attributes. The message passed via 'run' or 'pipe' will be the associated event object.  | [string] |
+|-----------|--------------|-----------|
+|on| If the *sensor* is watching *data* tags using 'watch' and/or 'need', the 'on' attribute specifies a topic on the *data* location. Generally, the default setting of 'update' should suffice. For *sensors* using the 'node' attribute, 'on' should be set to a DOM event name, such as 'click' or 'mouseover'.  | [string] |
+|-----------|--------------|-----------|
 
