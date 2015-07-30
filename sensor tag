@@ -10,10 +10,6 @@
 
 ```
 
-need || watch || node only
-
-on — for topic ‘update’ default,,optional — bool for watch,where,pipe,run,filter,transform (type all),once,retain,change,auto,batch,keep
-
 ### Sensor Tag Attributes
 
 |Name | Description | [Types] & Options |
@@ -25,5 +21,27 @@ on — for topic ‘update’ default,,optional — bool for watch,where,pipe,ru
 |*node*| Finds a 'node' by 'id' in the *cog's* *display* and listens for the event specified by the 'on' attribute. Use the 'node' attribute in lieu of the 'watch' and 'need' attributes. The message passed via 'run' or 'pipe' will be the associated event object.  | [string] |
 |-----------|--------------|-----------|
 |on| If the *sensor* is watching *data* tags using 'watch' and/or 'need', the 'on' attribute specifies a topic on the *data* location. Generally, the default setting of 'update' should suffice. For *sensors* using the 'node' attribute, 'on' should be set to a DOM event name, such as 'click' or 'mouseover'.  | [string] |
+|-----------|--------------|-----------|
+|optional| Makes the *sensor's* subscriptions optional such that missing *data* tags in the 'watch' or 'need' attributes will simply be ignored (as opposed to throwing errors).| [bool] |
+|-----------|--------------|-----------|
+|where| desc | [bool] |
+|-----------|--------------|-----------|
+|pipe| desc | [bool] |
+|-----------|--------------|-----------|
+|run| desc | [bool] |
+|-----------|--------------|-----------|
+|filter| desc | [bool] |
+|-----------|--------------|-----------|
+|transform| desc | [bool] |
+|-----------|--------------|-----------|
+|once| desc | [bool] |
+|-----------|--------------|-----------|
+|retain| desc | [bool] |
+|-----------|--------------|-----------|
+|keep| desc | [bool] |
+|-----------|--------------|-----------|
+|auto| desc | [bool] |
+|-----------|--------------|-----------|
+|batch| desc | [bool] |
 |-----------|--------------|-----------|
 
