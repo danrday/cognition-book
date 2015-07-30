@@ -19,7 +19,7 @@ The **cog** tag embeds a visible **cog** component within the HTML display of th
 
 |Name | Description | [Types] & Options |
 |-----------|--------------|-----------|
-|**id**| The DOM element id used as placeholder or reference point by the **cog**. | [string] |
+|**node**| The DOM element id used as placeholder or reference point by the **cog**. | [string] |
 |-----------|--------------|-----------|
 |**url**|  A relative or absolute path to a file containing a **cog** definition with at least a **display** declaration. | [*string*, prop, data, run, config] |
 |-----------|--------------|-----------|

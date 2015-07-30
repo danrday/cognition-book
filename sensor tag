@@ -1,12 +1,15 @@
 ## Sensor
 
-**TLDR**: Stores observable **data** with the **cog**.  Watched by **sensors**. 
+**TLDR**: Watches **data** locations as a subscriber. Fires output by invoking a 'run' method or piping a message to a **data** location with the 'pipe' name. Can do crazy stuff like transforms, filters, batching, etc.
 
 ### Sensor Tag Examples
 
 ```html
 
-<data name="currentPage" />
+<sensor watch="records" run="render" auto="true" />
+<sensor watch="records, filters" run="render" auto="true" />
+<sensor watch="dataService" on="error" pipe="errorAlert" auto="true" />
+<sensor watch="config" need="user" transform="toNextPage" pipe="activePage" auto="true" /> 
 
 ```
 
@@ -24,24 +27,26 @@
 |-----------|--------------|-----------|
 |optional| Makes the *sensor's* subscriptions optional such that missing *data* tags in the 'watch' or 'need' attributes will simply be ignored (as opposed to throwing errors).| [bool] |
 |-----------|--------------|-----------|
-|where| desc | [bool] |
+|where|  Where to search for the given tag name(s). 'first': looks locally and goes up the **cog** tree, returning the first match. 'parent': like 'first' but skips the current **cog**. 'outer': returns the second match. 'last': returns the highest, final match in the **cog** hierarchy.  | *first*, parent, outer, last |
 |-----------|--------------|-----------|
-|pipe| desc | [bool] |
+|*pipe*| When the **sensor** fires, writes to the 'first' **data** location found with the name specified by 'pipe'. The attributes 'pipe' or 'run' are the only output methods for **sensors** and are mutually exclusive. | [string] |
 |-----------|--------------|-----------|
-|run| desc | [bool] |
+|*run*| When the *sensor* fires, runs a function of the given name as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag, sensor); the message argument contains the data being transferred and is typically the only argument needed. The attributes 'pipe' or 'run' are the only output methods for **sensors** and are mutually exclusive. | [string] |
 |-----------|--------------|-----------|
-|filter| desc | [bool] |
+|filter| When the *sensor* receives new data, a function of the given name is invoked as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag) and it should return true in order to continue processing the data. If the filter method returns false, the incoming data will be silently ignored. | [string] |
 |-----------|--------------|-----------|
-|transform| desc | [bool] |
+|transform| When the *sensor* receives new data, a function of the given name is invoked as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag) and it should return true in order to continue processing the data. If the filter method returns false, the incoming data will be silently ignored. For 'batch' *sensors*, this currently applies the 'transform' method to the messages before they are batched. (Future versions might include something like 'arrive' and 'leave' methods to handle both outputs.)  | [bool] |
 |-----------|--------------|-----------|
-|once| desc | [bool] |
+|once| This flag will automatically destroy the *sensor* after firing a single time. | [bool] |
 |-----------|--------------|-----------|
-|retain| desc | [bool] |
+|change| This flag will prevent the **sensor** from firing unless the incoming message differs from the last message received, i.e., it skips (or silences) duplicates. | [bool] |
 |-----------|--------------|-----------|
-|keep| desc | [bool] |
+|retain| If the *sensor* has a 'need' attribute, it will remain fulfilled once satisfied. Normally, the needs are reset when a *sensor* fires such that fresh data is required for each 'need'. | [bool] |
 |-----------|--------------|-----------|
-|auto| desc | [bool] |
+|keep| A *sensor* set to 'batch' keeps an internal history of messages received that it will process when the bus flushes. By default, it will pass along the 'last' message received when it fires. It can also pass the 'first' message seen, or even an array containing 'all' messages received between flushes. | *last*, first, all |
 |-----------|--------------|-----------|
-|batch| desc | [bool] |
+|auto| Upon creation, the **sensor** will automatically read and pass along the value stored in the **data** location it is monitoring IF the message is not *undefined*. | [bool] |
+|-----------|--------------|-----------|
+|batch| When data is received, the *sensor* will note it but not fire until the bus is flushed (which occurs via requestAnimationFrame). *Sensors* watching multiple *data* locations set 'batch' to true automatically. Note that any 'need' attributes must also be met in order for the **sensor** to fire.   | [bool] |
 |-----------|--------------|-----------|
 
