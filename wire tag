@@ -11,7 +11,7 @@ The *wire* tag includes additional *blueprint* and *script* functionality on (as
 
 ### Wire Tag Attributes
 
-|Name | Description | Required? | Types |
+|Name | Description |  Types |
 |-----------|--------------|-----------|-----------|
 |url|  A relative or absolute path to a file containing a *wire* definition that implements *script* and/or *blueprint* declarations. Wires are like *cogs* without *display* declarations. | Yes | *string*, data |
 |-----------|--------------|-----------|-----------|

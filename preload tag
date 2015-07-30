@@ -1,6 +1,6 @@
 ## Preload
 
-The *preload* tag requires that a file be loaded before the *cog* containing its declaration is initialized. Preloaded files are not executed and are not placed in the *cog* hierarchy.
+The **preload** tag requires that a file be loaded before the **cog** containing its declaration is initialized. Preloaded files are simply stored in the cache; they are not executed and are not placed in the **cog** hierarchy.
 
 ### Preload Tag Examples
 
@@ -12,9 +12,9 @@ The *preload* tag requires that a file be loaded before the *cog* containing its
 
 ### Preload Tag Attributes
 
-|Name | Description | Required? | Types |
-|-----------|--------------|-----------|-----------|
-|url|  A relative or absolute path to a file containing a *cog* definition that implements *script* and/or *blueprint* declarations. Any *display* declarations would be ignored. | Yes | *string*, data |
-|-----------|--------------|-----------|-----------|
-|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. | No | none |
+|Name | Description | [Types] & Options |
+|-----------|--------------|-----------|
+|**url**|  A relative or absolute path to any file. | [string] |
+|-----------|--------------|-----------|
+|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another **alias** defined previously. | [string] |
 

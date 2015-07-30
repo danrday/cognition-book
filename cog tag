@@ -19,15 +19,15 @@ The **cog** tag embeds a visible **cog** component within the HTML display of th
 
 |Name | Description | [Types] & Options |
 |-----------|--------------|-----------|
-|**id**| The DOM element id used as placeholder or reference point by the **cog**. | |
+|**id**| The DOM element id used as placeholder or reference point by the **cog**. | [string] |
 |-----------|--------------|-----------|
 |**url**|  A relative or absolute path to a file containing a **cog** definition with at least a **display** declaration. | [*string*, prop, data, run, config] |
 |-----------|--------------|-----------|
-|path|  A directory used as a prefix for the 'url' attribute. It can be an actual path or the name of another **alias** defined previously. |  |
+|path|  A directory used as a prefix for the 'url' attribute. It can be an actual path or the name of another **alias** defined previously. | [string] |
 |-----------|--------------|-----------|
-|from|  The data source or configuration injected into the **cog**, generally an options object in the defined in the *script* tag. | *prop*, data, run, config |
+|from|  The data source or configuration injected into the **cog**, generally an options object in the defined in the *script* tag. | [*prop*, data, run, config] |
 |-----------|--------------|-----------|
-|to|  The name of the storage item dynamically created within the **cog** to hold its configuration; it defaults to a 'config' attribute named 'item'. | No | *config item*, data, prop, run |
+|to|  The name of the storage item dynamically created within the **cog** to hold its configuration; it defaults to a 'config' attribute named 'item'. | [*config item*, data, prop, run] |
 |-----------|--------------|-----------|
 |and|  The DOM method used to place the **cog** relative to the placeholder identified by the 'id' attribute. | *append*, prepend, before, after, replace  |
 

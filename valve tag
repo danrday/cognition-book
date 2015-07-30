@@ -1,33 +1,27 @@
 ## Valve
 
-The *valve* tag lets one sandbox portions of the *cog* hierarchy. It provides a communications 'white-list' such that descendant *cogs* cannot access things such as *config*, *alias* or *data* locations that exist above the *valve*. It does not apply restrictions to the *cog* in which it is declared.
+The **valve** tag lets one sandbox portions of the **cog** hierarchy. It provides a communications 'white-list' such that descendant *cogs* cannot access **config**, **alias** or **data** tags that exist at the **valve's** level and above. It does not apply restrictions to the **cog** in which it is declared.
 
-
+A single **valve** can specify one or more permitted names and a single tag type. Multiple **valves** can be placed within a single **cog**, resulting in a white-list consisting of their union.  Tag types without any associated **valves** can be accessed without restriction.
 
 ### Prop Tag Examples
 
 ```html
-   <prop find="currentUser" />
-   <prop find="temperature" is="data" where="last" />   
-   <prop find="defaultStation" is="config" name="station" />
-   <prop find="phoneNum" name="phNum" />
-   <prop find="address2" optional="true" />
+
+   <valve allow="currentUser" />
+   <valve allow="cmdAdd, cmdView, cmdUpdate" is="data" />
+   <valve allow="ENVIRONMENT_PATH" is="alias" />
+   <valve allow="settings,user" is="config" />
 ```
 
 ### Valve Tag Attributes
 
-|Name | Description | Required? | Types |
-|-----------|--------------|-----------|-----------|
-|allow| The DOM element id used as placeholder by the *cog*. | Yes | none |
-|-----------|--------------|-----------|-----------|
-|is|  A relative or absolute path to a file containing a *cog* definition with at least a display declaration. | Yes | *string*, data |
-|-----------|--------------|-----------|-----------|
-|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. | No | none |
-|-----------|--------------|-----------|-----------|
-|source|  The name of the data source used to construct the cog, generally an options object. | No | *prop*, data, run, config |
-|-----------|--------------|-----------|-----------|
-|item|  The name of the storage item created within the loaded cog to hold its configuration; it defaults to a *config* attribute named 'item'. | No | *config*, data, prop, run |
-|-----------|--------------|-----------|-----------|
-|and|  The DOM method used to place the *cog* relative to the placeholder identified by the *id* attribute. Defaulting to 'append', other options include 'prepend', 'before', 'after', and 'replace'. | No | none |
+|Name | Description | [Types] & Options |
+|-----------|--------------|-----------|
+|allow| Tag name (or names) that descendant **cogs** can access.  | [string (comma delimited)] |
+|-----------|--------------|-----------|
+|is|  The tag type to which the **valve** applies. | *data*, config, alias |
+|-----------|--------------|-----------|
+
 
 

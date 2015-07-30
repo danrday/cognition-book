@@ -1,6 +1,7 @@
 ## Prop
 
-The *prop* lets one reference a *data* location, *alias* or *config* within Javascript such that the name of the property is added to the *this* within a *cog*'s script. It is used to expose and access properties  defined in *cogs* above the current one.
+The **prop** tag lets one reference a **data** location, **alias** or **config** within a **script** such that the name of the property is added as a property within a **cog's script**. It is used to expose and access properties  defined in **cogs** above the current one.
+
 
 ### Prop Tag Examples
 
@@ -14,15 +15,15 @@ The *prop* lets one reference a *data* location, *alias* or *config* within Java
 
 ### Prop Tag Attributes
 
-|Name | Description | Required? | Types |  Options |
+|Name | Description | [Types] & Options |
+|-----------|--------------|-----------|
+|find| The name of the **data, alias** or **config** property to find. | [string] |
 |-----------|--------------|-----------|-----------|-----------|
-|find| The name of the *blueprint* property to find. | Yes | none | |
-|-----------|--------------|-----------|-----------|-----------|
-|name| A local name used to expose the property on the current script. This defaults to the 'find' value. | No | none | |
-|-----------|--------------|-----------|-----------|-----------|
-|is|  The *blueprint* tag type to find | No | none | *data*, alias, config |
-|-----------|--------------|-----------|-----------|-----------|
-|where|  Where to search for the given tag name. 'first': looks locally and goes up the *cog* tree, returning the first match. 'parent': like 'first' but skips the 'local' cog. 'outer': returns the second match. 'last': returns the highest, final match in the *cog* hierarchy.  | No | none | *first*, parent, outer, last |
-|-----------|--------------|-----------|-----------|-----------|
+|name| A local name used to expose the property on the current **script**. This defaults to the 'find' value. | [string] |
+|-----------|--------------|-----------|
+|is|  The tag type to find | **data**, alias, config |
+|-----------|--------------|-----------|
+|where|  Where to search for the given tag name. 'first': looks locally and goes up the **cog** tree, returning the first match. 'parent': like 'first' but skips the current cog. 'outer': returns the second match. 'last': returns the highest, final match in the *cog* hierarchy.  | *first*, parent, outer, last |
+|-----------|--------------|-----------|
 
 
