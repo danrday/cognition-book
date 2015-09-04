@@ -5,6 +5,7 @@ the framework
 typed attributes
 tag reference
 alias tag
+alloy tag
 chain tag
 cog tag
 config tag
@@ -14,4 +15,3 @@ prop tag
 require tag
 sensor tag
 valve tag
-wire tag

@@ -17,13 +17,13 @@ The **prop** tag lets one reference a **data** location, **alias** or **config**
 
 |Name | Description | [Types] & Options |
 |-----------|--------------|-----------|
-|find| The name of the **data, alias** or **config** property to find. | [string] |
+|find| The name of the *data* or *alias* property to find. | [string] |
 |-----------|--------------|-----------|-----------|-----------|
-|name| A local name used to expose the property on the current **script**. This defaults to the 'find' value. | [string] |
+|name| A local name used to expose the property on the current *script*. This defaults to the 'find' value. | [string] |
 |-----------|--------------|-----------|
-|is|  The tag type to find | **data**, alias, config |
+|is|  The tag type to find | *data*, alias |
 |-----------|--------------|-----------|
-|where|  Where to search for the given tag name. 'first': looks locally and goes up the **cog** tree, returning the first match. 'parent': like 'first' but skips the current cog. 'outer': returns the second match. 'last': returns the highest, final match in the *cog* hierarchy.  | *first*, parent, outer, last |
+|where|  Where to search for the given tag name. 'first': looks locally and goes up the *cog* tree, returning the first match. 'parent': like 'first' but skips the current cog. 'outer': returns the second match. 'last': returns the highest, final match in the *cog* hierarchy.  | *first*, parent, outer, last |
 |-----------|--------------|-----------|
 
 

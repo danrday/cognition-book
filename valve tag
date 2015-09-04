@@ -1,6 +1,6 @@
 ## Valve
 
-The **valve** tag lets one sandbox portions of the **cog** hierarchy. It provides a communications 'white-list' such that descendant *cogs* cannot access **config**, **alias** or **data** tags that exist at the **valve's** level and above. It does not apply restrictions to the **cog** in which it is declared.
+The *valve* tag lets one sandbox portions of the *cog* hierarchy. It provides a communications 'white-list' such that descendant *cogs* cannot access *alias* or *data* tags that exist at the *valve's* level and above. It does not apply restrictions to the **cog** in which it is declared.
 
 A single **valve** can specify one or more permitted names and a single tag type. Multiple **valves** can be placed within a single **cog**, resulting in a white-list consisting of their union.  Tag types without any associated **valves** can be accessed without restriction.
 
@@ -18,8 +18,8 @@ A single **valve** can specify one or more permitted names and a single tag type
 
 |Name | Description | [Types] & Options |
 |-----------|--------------|-----------|
-|allow| Tag name (or names) that descendant **cogs** can access.  | [string (comma delimited)] |
+|allow| Tag name (or names) that descendant *cogs* can access.  | [string (comma delimited)] |
 |-----------|--------------|-----------|
-|is|  The tag type to which the **valve** applies. | *data*, config, alias |
+|is|  The tag type to which the *valve* applies. | *data*, alias |
 |-----------|--------------|-----------|
 
