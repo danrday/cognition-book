@@ -2,11 +2,11 @@
 
 **TLDR**: Watches **data** locations as a subscriber. Fires output by invoking a 'run' method or piping a message to a **data** location with the 'pipe' name. Can do fun stuff like transforms, filters, batching, etc.
 
-**Sensors** detect events and data flows, acting as subscription instances that can gather, filter, transform and emit message data. 
+**Sensors** detect events and data flows, acting as subscription instances that can gather, filter, transform and emit message data.Ã‚ 
 
 Using the 'watch' and/or 'need' attributes, **sensors** can monitor **data** locations by name. **Sensors** search for each **data** location in turn, checking the current **cog** and then walking up the **cog** hierarchy until a match is found. Note: the search pattern can be modified using the 'where' attribute. 
 
-With the 'node' attribute, a **sensor** can listen for DOM events on a node with a matching 'id' attribute in the **cog's display** declaration. Specify the event (such as 'click' or 'mouseup') using the 'on' attribute.
+With the 'node' attribute, a **sensor** can listen for DOM events on a nodeÃ‚ with a matching 'id' attribute in the **cog's display** declaration. Specify the event (such as 'click' or 'mouseup') using the 'on' attribute.
 
 ### Sensor Tag Examples
 
