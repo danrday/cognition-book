@@ -3,6 +3,11 @@ Data Store (Cat?) and Message Bus (Bus!) in Javascript
 
 ## Sensor Lifecycle
 
+{icon=automobile}
+G> ## Vrooom!
+G>
+G> The freedom of the road!
+
 Sensors watch data locations and relay messages through function calls that always pass 3 arguments: message, topic and source.
 Generally, the *message* contains the data being passed, the *topic* acts like an event name and the
 *source* is the name of data location from which the *message* originated. 
@@ -10,16 +15,16 @@ Note that various methods can shift the meanings of these for a variety of use c
 
 When a **sensor** receives a message, it goes through the following series of steps in order to process it.
 
-1) Check Enabled: If the **sensor** has been deactivated (dropped), the message is silently aborted.
-2) Gather: The values of any data locations to *gather* are bundled into a hash of values by *source* name, augmenting the original *message* data.
-3) Extract: The *extract* attribute is plucked from the *message* and replaces it.
-4) Consider: The *consider* attribute acts as a functor to modify or replace the incoming *message* (before filters are applied.
-5) Change: If *change* is true, the *message* will silently abort if it equals the last *message* seen and stored at this point in the process.
-6) Filter: If present, a *filter* function is called with arguments (message, topic, source) and will continue if *true* is returned.
-7) Batch and Group: If *batch* or *group* attributes are defined, the sensor will begin bundling *messages* in a list or hash, respectively.
-8) Transform:  The *transform* attribute acts as a functor to modify or replace the outgoing *message*. 
-9) Emit: The *emit* attribute acts as a functor to modify or replace the outgoing *topic*. 
-10) Queue: The *message* is either sent directly or queued for delivery on *flush* (invoked manually or by the next cycle of the event loop).
+1. Check Enabled: If the **sensor** has been deactivated (dropped), the message is silently aborted.
+2. Gather: The values of any data locations to *gather* are bundled into a hash of values by *source* name, augmenting the original *message* data.
+3. Extract: The *extract* attribute is plucked from the *message* and replaces it.
+4. Consider: The *consider* attribute acts as a functor to modify or replace the incoming *message* (before filters are applied.
+5. Change: If *change* is true, the *message* will silently abort if it equals the last *message* seen and stored at this point in the process.
+6. Filter: If present, a *filter* function is called with arguments (message, topic, source) and will continue if *true* is returned.
+7. Batch and Group: If *batch* or *group* attributes are defined, the sensor will begin bundling *messages* in a list or hash, respectively.
+8. Transform:  The *transform* attribute acts as a functor to modify or replace the outgoing *message*. 
+9. Emit: The *emit* attribute acts as a functor to modify or replace the outgoing *topic*. 
+10. Queue: The *message* is either sent directly or queued for delivery on *flush* (invoked manually or by the next cycle of the event loop).
 
 ## Catbus API Documentation
 
