@@ -3,10 +3,12 @@ Data Store (Cat?) and Message Bus (Bus!) in Javascript
 
 ## Sensor Lifecycle
 
+<div style='background-color: #cccccc;'>
 {icon=automobile}
 G> ## Vrooom!
 G>
 G> The freedom of the road!
+</div>
 
 Sensors watch data locations and relay messages through function calls that always pass 3 arguments: message, topic and source.
 Generally, the *message* contains the data being passed, the *topic* acts like an event name and the
