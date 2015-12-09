@@ -3,6 +3,7 @@ design philosophy
 the catbus
 the framework
 typed attributes
+tutorial
 tag reference
 alias tag
 alloy tag
