@@ -3,7 +3,7 @@ intro/design philosophy
 catbus/the catbus
 intro/the framework
 intro/typed attributes
-intro/test
+
 tag_reference/_title
 tag_reference/alias tag
 tag_reference/alloy tag
