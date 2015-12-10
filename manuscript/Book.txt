@@ -4,6 +4,8 @@ catbus/the catbus
 intro/the framework
 intro/typed attributes
 
+tutorial/intro.md
+
 tag_reference/_title
 tag_reference/alias tag
 tag_reference/alloy tag
