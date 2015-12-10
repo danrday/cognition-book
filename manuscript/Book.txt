@@ -4,8 +4,8 @@ the catbus
 the framework
 typed attributes
 tutorial
-tag reference
-alias tag
+tag_reference/tag reference
+tag_reference/alias tag
 alloy tag
 chain tag
 cog tag
