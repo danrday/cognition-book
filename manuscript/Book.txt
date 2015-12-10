@@ -1,18 +1,17 @@
-design goals
-design philosophy
-the catbus
-the framework
-typed attributes
-tutorial
-tag_reference/tag reference
+intro/design goals
+intro/design philosophy
+catbus/the catbus
+intro/the framework
+intro/typed attributes
+intro/test
+tag_reference/_title
 tag_reference/alias tag
-alloy tag
-chain tag
-cog tag
-config tag
-data tag
-preload tag
-prop tag
-require tag
-sensor tag
-valve tag
+tag_reference/alloy tag
+tag_reference/chain tag
+tag_reference/cog tag
+tag_reference/data tag
+tag_reference/preload tag
+tag_reference/prop tag
+tag_reference/require tag
+tag_reference/sensor tag
+tag_reference/valve tag
