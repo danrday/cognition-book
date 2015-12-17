@@ -19,8 +19,8 @@ When a **sensor** receives a message, it goes through the following series of st
 
 1. Check Enabled: If the **sensor** has been deactivated (dropped), the message is silently aborted.
 2. Gather: The values of any data locations to *gather* are bundled into a hash of values by *source* name, augmenting the original *message* data.
-3. Extract: The *extract* attribute is plucked from the *message* and replaces it.
-4. Consider: The *consider* attribute acts as a functor to modify or replace the incoming *message* (before filters are applied.
+3. Extract: A property plucked from the *message* that replaces it.
+4. Conform: A functor to modify or replace the incoming *message* (before change or filters are applied).
 5. Change: If *change* is true, the *message* will silently abort if it equals the last *message* seen and stored at this point in the process.
 6. Filter: If present, a *filter* function is called with arguments (message, topic, source) and will continue if *true* is returned.
 7. Batch and Group: If *batch* or *group* attributes are defined, the sensor will begin bundling *messages* in a list or hash, respectively.
@@ -31,6 +31,21 @@ When a **sensor** receives a message, it goes through the following series of st
 ## Catbus API Documentation
 
 ### Bus Methods 
+
+at, location
+
+:   Creates or retrieves a Location with the given name stored on the bus. A tag can be given to the Location; this will travel with any messages generated at the Location. The tag is the same as the name by default. | Location | 
+
+dropHost
+
+:   Drops (i.e. destroys) any Sensors or Locations with the host name provided. | boolean (host existed?) | 
+
+flush
+
+:   Triggers the processing of all pending messages on the bus. This is called automatically
+
+
+
 
 |Name | Parameters | Description | Returns | 
 |-----|------------|-------------|---------|
