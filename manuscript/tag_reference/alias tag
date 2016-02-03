@@ -2,7 +2,7 @@
 
 TLDR: For your project, use this to safely move directories around, rename files, flip between versions of code, or refactor all the things. Update an ```alias``` or two and it all still works!
 
-The **alias** tag provides a way to create references to specific URLs. Each of these can reference a parent **alias** via the path attribute in order to construct cascading paths. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
+The **alias** tag provides a way to create references to specific URLs. Each of these can reference a parent **alias** via the path attribute in order to construct chained paths. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
 
 Other cognition tags with 'url' or 'path' attributes can use **alias** names as values to handle file path resolution.
 
@@ -13,20 +13,21 @@ By convention, the 'name' attribute of an **alias** tag is always fully capitali
 ### Alias Tag Examples
 
 ```html
+<alias name="LIBRARY_FILE" url="/public/js/library.js" />
 <alias name="CONTENT_ROOT" url="/public/app/html"  />
-<alias name="PAGES"  url="pages" path="CONTENT_ROOT"  />
-<alias name="CHART_PAGE" url="charts.html" path="PAGES" />
-<alias name="CREDITS_PAGE" url="credits.html" path="PAGES" />
+<alias name="PAGES" path="CONTENT_ROOT" url="pages"  />
+<alias name="CHART_PAGE" path="PAGES" url="charts.html" />
+<alias name="CREDITS_PAGE" path="PAGES" url="credits.html" />
 ```
 
 ### Alias Tag Attributes
 
-|Name | Description | [Types] & Options |
-|-----------|--------------|-----------|
-|**name**| The actual string used to reference the alias. | [string] |
-|-----------|--------------|-----------|
-|**url**|  A relative or absolute path to an actual file or directory. | [string] |
-|-----------|--------------|-----------|
-|path|  A directory used as a prefix for the url attribute. It can be an actual relative or absolute path or the name of another **alias** defined previously. They can be chained together such that a change to a root **alias** can affect how every dependent *alias* resolves. | [string] |
+**name**
+: Name to reference the alias. [string]
 
+**url**
+: Relative or absolute file path. [string]
+
+path
+: Relative or absolute directory path, prepended to the **url**. Can be another **alias** defined previously. [string]
 
