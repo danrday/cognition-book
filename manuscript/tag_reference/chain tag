@@ -1,41 +1,59 @@
 ## Chain
 
-Manages arrays of **cogs**. It is inspired heavily by D3.js's system of mapping DOM nodes to discrete data elements with enter, update and exit events.
+TLDR
+: Chains create arrays of cogs based on a common url.
 
-With **chains**, a series of cogs are created based on one url. They are mapped to the keys (or indices) of a source array of data via the 'from' attribute. Data is injected into each via the **chain's** 'to' attribute.
 
-Other options can help to control how these **cogs** are layered and applied to the DOM.
+A series of cogs are created based on one url.
+
+They are mapped to the keys (or indices) of a source array of data via the source attribute.
+
+Data is injected into each via child cog via the chain's item attribute.
+
+Other options can help to control how these cogs are layered and applied to the DOM.
 
 ### Chain Tag Examples
 
 ```html
-<chain id="body" from="records" to="record" url="row.html" depth="true" />
-<chain id="holder" from="prop filters" to="config filter" url="COMBO_BOX" />
-<chain id="list" from="cats" to="item" path="LAYOUTS" url="list.html" key="cat_id" />
-<chain id="content" from="people" to="prop dude" url="guy.html" build="sort" />
-<chain id="blogroll" from="run getBloggers" url="blogger.html" order="true" />
+<chain node="body" source="records" item="record" url="row.html" />
+<chain node="holder" source="prop filters" item="prop filter" url="COMBO_BOX" />
+<chain node="list" source="cats" path="LAYOUTS" url="list.html" key="cat_id" />
+<chain node="blogroll" source="run getBloggers" url="blogger.html" />
 ```
 
 ### Chain Tag Attributes
 
-|Name | Description | [Types] & Options |
-|-----------|--------------|-----------|
-|**id**| The DOM element id used as placeholder by the **chain**. | [string] |
-|-----------|--------------|-----------|
-|**url**|  A relative or absolute path to a file containing a **cog** definition with at least a display declaration. Used by every **cog** in the chain. | [string]  |
-|-----------|--------------|-----------|
-|**from**|  The data source used to construct the chain; it should resolve to an array. By default, it senses changes to a named **data** tag. | [*data*, prop, run] |
-|-----------|--------------|-----------|
-|to|  The data item created within each cog created from the source array. By default, it builds a **data** tag named 'item' that is wired back to the source data. | [*data item*, prop, run] |
-|-----------|--------------|-----------|
-|path|  A directory used as a prefix for the url attribute. It can be an actual path or the name of another **alias** defined previously. | [string] |
-|-----------|--------------|-----------|
-|key|  A way to identify data elements that persist across source changes. An item's index in the source array is used by default. An object property name or a method to compute a key (function(data) { ... return key; } can be used as key values. | [*index*, string, prop, run] |
-|-----------|--------------|-----------|
-|build|  By default, build is set to 'append', and will append new elements into the node containing the **chain**. Use 'scratch' to destroy and rebuild with each change to the data source. Use 'sort' to rearrange nodes to match their order in the source array. | *append*, scratch,  or sort |
-|-----------|--------------|-----------|
-|order|  The order attribute applies the CSS order style to each **cog** in the **chain** using the source array's index values. | [bool] |
-|-----------|--------------|-----------|
-|depth|  The depth attribute applies the CSS z-index style to each **cog** in the **chain** using the source array's index values.  | [bool] |
-|-----------|--------------|-----------|
+node*
+: Node in the display in which to put the chain. [*string*]
+
+url*
+: Relative file path, absolute file path or alias name.
+  Resolves to file containing a cog definition that implements a display declaration
+  (and possibly script or blueprint declarations).
+  [*string*, data, prop, run, read]
+
+path
+: Relative or absolute directory path, prepended to the url. Can be another alias defined previously. [*string*]
+
+source
+: External data source (must resolve to an array) for configuration. [*data*, prop, run, read]
+
+item
+: Internal data source created within each cog of the chain (using source). [*data* itemData, prop, run, read]
+
+name
+: Name to reference (for routes). [*string*]
+
+route
+: Indicates a namespace (named after the chain) for data tags. [*boolean*]
+
+route
+: Indicates a namespace (named after the chain) for data tags. [*boolean*]
+
+key
+: A way to identify data elements that persist across source changes. An item's index in the source array is used by default.
+  An object property name or a method to compute a key (function(data) { ... return key; } can be used as key values.
+  [*index*, string, prop, run, read]
+
+------
 
