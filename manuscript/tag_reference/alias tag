@@ -1,8 +1,10 @@
 ## Alias
 
-TLDR: For your project, use this to safely move directories around, rename files, flip between versions of code, or refactor all the things. Update an alias or two and it all still works!
+**TLDR: For your project, use this to safely move directories around, rename files, flip between versions of code, or refactor all the things. Update an alias or two and it all still works!**
 
-The alias tag provides a way to create references to specific URLs. Each of these can reference a parent alias via the path attribute in order to construct chained paths. Although '../' is supported as a convenience, this tag is designed to discourage its usage.
+The alias tag provides a way to create references to specific URLs. Each of these can reference a parent alias via the path attribute in order to construct chained paths.
+
+Although '../' is supported as a convenience, this tag is designed to discourage its usage.
 
 Other cognition tags with url or path attributes can use alias names as values to handle file path resolution.
 
@@ -22,11 +24,11 @@ By convention, the name attribute of an alias tag is always fully capitalized wi
 
 ### Alias Tag Attributes
 
-name *
+name*
 : Name to reference. [*string*]
 
 
-url *
+url*
 : Relative or absolute file path. [*string*]
 
 path
