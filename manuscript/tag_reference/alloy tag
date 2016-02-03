@@ -16,12 +16,10 @@ The ```script``` contents of an ```alloy``` are exposed on the ```script``` of t
 name
 : Name to reference. [*string*]
 
-url
+url*
 : Relative file path, absolute file path or ```alias name```.
   Resolves to file containing an ```alloy``` definition that implements ```script``` and/or ```blueprint``` declarations.
   ```Alloy``` files are like ```cog``` files without ```display``` declarations. [*string*]
-
-  *(required)*
 
 path
 : Relative or absolute directory path, prepended to the ```url```. Can be another ```alias``` defined previously. [*string*]

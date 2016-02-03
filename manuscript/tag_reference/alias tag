@@ -22,15 +22,12 @@ By convention, the ```name``` attribute of an ```alias``` tag is always fully ca
 
 ### Alias Tag Attributes
 
-name
+name *
 : Name to reference. [*string*]
 
-  *(required)*
 
-url
+url *
 : Relative or absolute file path. [*string*]
-
-  *(required)*
 
 path
 : Relative or absolute directory path, prepended to the ```url```. Can be another ```alias``` defined previously. [*string*]
