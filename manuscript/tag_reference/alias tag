@@ -1,4 +1,4 @@
-## Alias
+# Alias
 
 TLDR: For your project, use this to safely move directories around, rename files, flip between versions of code, or refactor all the things. Update an ```alias``` or two and it all still works!
 
@@ -27,7 +27,7 @@ name
   *(required)*
 
 url
-: (required) Relative or absolute file path. [string]
+: Relative or absolute file path. [string]
   *(required)*
 
 path
