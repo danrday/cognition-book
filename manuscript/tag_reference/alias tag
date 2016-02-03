@@ -1,4 +1,4 @@
-# Alias
+## Alias
 
 TLDR: For your project, use this to safely move directories around, rename files, flip between versions of code, or refactor all the things. Update an ```alias``` or two and it all still works!
 
@@ -23,17 +23,18 @@ By convention, the ```name``` attribute of an ```alias``` tag is always fully ca
 ### Alias Tag Attributes
 
 name
-: Name to reference the alias. [string]
+: Name to reference. [*string*]
 
   *(required)*
 
 url
-: Relative or absolute file path. [string]
+: Relative or absolute file path. [*string*]
 
   *(required)*
 
 path
-: Relative or absolute directory path, prepended to the **url**. Can be another **alias** defined previously. [string]
+: Relative or absolute directory path, prepended to the ```url```. Can be another ```alias``` defined previously. [*string*]
+
 
 
 ------

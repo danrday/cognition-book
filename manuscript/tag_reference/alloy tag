@@ -1,8 +1,8 @@
 ## Alloy
 
-The *alloy* tag includes additional *blueprint* and *script* functionality on (as if just above) the *cog* in which it is declared. *Alloys* can act as libraries or state machines and do not have a *display* declaration. They can be stacked within a *cog*, but they cannot be nested within other *alloys*.
+The ```alloy``` tag mixes in additional ```blueprint``` and ```script``` functionality on (as if just above) the ```cog``` in which it is declared. ```Alloys``` can act as libraries or state machines and do not have a ```display``` declaration. They can be stacked within a ```cog```, but they cannot be nested within other ```alloys```.
 
-The *script* contents of an *alloy* are exposed on the *script* of the containing *cog* as a property based on the *alloy's* *name* attribute.
+The ```script``` contents of an ```alloy``` are exposed on the ```script``` of the *cog* declaring the ```alloy``` using the ```alloy's``` ```name``` attribute.
 
 ### Alloy Tag Examples
 
@@ -11,11 +11,30 @@ The *script* contents of an *alloy* are exposed on the *script* of the containin
 <alloy url="supplyChainFeed.html" path="APP_FEEDS" />
 ```
 
-### Ally Tag Attributes
+### Alloy Tag Attributes
 
-|Name | Description |  Types |
-|-----------|--------------|-----------|
-|url|  A relative or absolute path to a file containing an *alloy* definition that implements *script* and/or *blueprint* declarations. *Alloy* files are like *cog* files without *display* declarations. | [*string*, data] |
-|-----------|--------------|-----------|
-|path|  A directory used as a prefix for the *url* attribute. It can be an actual path or the name of another *alias* defined previously. | [string] |
+name
+: Name to reference. [*string*]
 
+url
+: Relative file path, absolute file path or ```alias name```.
+  Resolves to file containing an ```alloy``` definition that implements ```script``` and/or ```blueprint``` declarations.
+  ```Alloy``` files are like ```cog``` files without ```display``` declarations. [*string*]
+
+  *(required)*
+
+path
+: Relative or absolute directory path, prepended to the ```url```. Can be another ```alias``` defined previously. [*string*]
+
+
+source
+: External data source for configuration. [*data*, prop, run, read]
+
+item
+: Internal data source created within the alloy (using ```source```). [*data* itemData, prop, run, read]
+
+route
+: Indicates a namespace (named after the ```alloy```) for ```data``` tags. [*boolean*]
+
+
+------
