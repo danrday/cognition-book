@@ -1,33 +1,52 @@
 ## Cog
 
-TLDR: The core component of the Cognition framework. Put **cogs** within **cogs** to build an application as a big nested tree (it's turtles all the way down). Each **cog** is constructed from a file containing a **display** tag and optional **blueprint** and **script** tags. 
+{blurb}
+**TLDR**
+The core component of the Cognition framework. Put cogs into cogs to build an application as a big nested tree (it's turtles all the way down).
+{/blurb}
 
-The **cog** tag embeds a visible **cog** component within the HTML display of the current **cog**, loading (lazy-style) into (or about) the DOM container referenced by its 'id' attribute. 
+The cog tag embeds a visible cog component within the HTML display of the current cog, loading (lazy-style) into
+the DOM node referenced by its node attribute (which is matched against the id attribute of a node in the display DOM).
+
+Each cog is constructed from a file containing a display tag and optional blueprint and script tags.
 
 ### Cog Tag Examples
 
 ```html
-   <cog id="header" url="HEADER"  />
-   <cog id="panel" url="panel.html" path="core/components"  />  
-   <cog id="alert" url="../../indicators/alert.html" />
-   <cog id="page" url="data currentPage" path="PAGES"  />
-   <cog id="status" source="run getStatus" item="config status" url="status.html" />
-   <cog id="footer" and="prepend" url="FOOTER"  />
+   <cog node="header" url="HEADER"  />
+   <cog node="panel" path="core/components" url="panel.html" />
+   <cog node="alert" url="../../indicators/alert.html" />
+   <cog node="page" source="configData" path="PAGES"  url="data currentPage" />
+   <cog node="status" source="run getStatus" item="prop status" url="status.html" />
+   <cog node="footer" url="FOOTER"  />
 ```
 
 ### Cog Tag Attributes
 
-|Name | Description | [Types] & Options |
-|-----------|--------------|-----------|
-|**node**| The DOM element id used as placeholder or reference point by the **cog**. | [string] |
-|-----------|--------------|-----------|
-|**url**|  A relative or absolute path to a file containing a **cog** definition with at least a **display** declaration. | [*string*, prop, data, run] |
-|-----------|--------------|-----------|
-|path|  A directory used as a prefix for the 'url' attribute. It can be an actual path or the name of another **alias** defined previously. | [string] |
-|-----------|--------------|-----------|
-|from|  The data source or configuration injected into the **cog**, generally an options object in the defined in the *script* tag. | [*prop*, data, run] |
-|-----------|--------------|-----------|
-|to|  The name of the storage item dynamically created within the **cog** to hold its configuration; it defaults to a 'config' attribute named 'item'. | [*data item*, prop, run] |
-|-----------|--------------|-----------|
-|and|  The DOM method used to place the **cog** relative to the placeholder identified by the 'id' attribute. | *append*, prepend, before, after, replace  |
+node*
+: Node in the display in which to put the cog. Matched against the id attribute of nodes in the display declaration. [*string*]
+
+url*
+: Relative file path, absolute file path or alias name.
+  Resolves to file containing a cog definition that implements a display declaration
+  (and possibly script or blueprint declarations).
+  [*string*, data, prop, run, read]
+
+path
+: Relative or absolute directory path, prepended to the url. Can be another alias defined previously. [*string*]
+
+source
+: External data source (must resolve to an array) for configuration. [*data*, prop, run, read]
+
+item
+: Internal data source created within each cog of the chain (using source). [*data* itemData, prop, run, read]
+
+name
+: Name to reference (for routes). [*string*]
+
+route
+: Indicates a namespace (named after the cog) for data tags. [*boolean*]
+
+
+------
 

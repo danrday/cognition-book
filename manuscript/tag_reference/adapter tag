@@ -1,0 +1,40 @@
+## Alias
+
+TLDR
+: Use this to safely move directories around, rename files, flip between versions of code, or refactor all the things. Update an alias or two and it all still works!
+
+The alias tag provides a way to create references to specific URLs. Each of these can reference a parent alias via the path attribute in order to construct chained paths.
+
+Although '../' is supported as a convenience, this tag is designed to discourage its usage.
+
+Other cognition tags with url or path attributes can use alias names as values to handle file path resolution.
+
+Using alias tags, one can rearrange the directory structure of an existing application without modifying the underlying code.
+
+By convention, the name attribute of an alias tag is always fully capitalized with underscores between words.
+
+### Alias Tag Examples
+
+```html
+<alias name="LIBRARY_FILE" url="/public/js/library.js" />
+<alias name="CONTENT_ROOT" url="/public/app/html"  />
+<alias name="PAGES" path="CONTENT_ROOT" url="pages"  />
+<alias name="CHART_PAGE" path="PAGES" url="charts.html" />
+<alias name="CREDITS_PAGE" path="PAGES" url="credits.html" />
+```
+
+### Alias Tag Attributes
+
+name*
+: Name to reference. [*string*]
+
+
+url*
+: Relative or absolute file path. [*string*]
+
+path
+: Relative or absolute directory path, prepended to the url. Can be another alias defined previously. [*string*]
+
+
+
+------

@@ -1,2 +1,24 @@
 # The Framework
 
+A Product of Love and Hate
+
+Love:
+
+Components
+Unidirectional Data-flow
+Copy and Paste
+Lazy Loading
+Implicit Classes
+
+
+Hate:
+
+Breaking File Paths
+Typing
+Bindings without Debugging
+Mixing Code with Markup
+Race Conditions
+
+
+
+The ultimate goal is to reduce cognitive overhead.
