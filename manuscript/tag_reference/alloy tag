@@ -1,5 +1,8 @@
 ## Alloy
 
+TLDR
+: Alloys provide reusable logic for cogs, like libraries or mixins or state machines with declarative goodness.
+
 The alloy tag mixes in additional blueprint and script functionality on (as if just above) the cog in which it is declared. Alloys can act as libraries or state machines and do not have a display declaration. They can be stacked within a cog, but they cannot be nested within other alloys.
 
 The script contents of an alloy are exposed on the script of the cog declaring the alloy using the alloy's name attribute.
