@@ -1,4 +1,4 @@
-## Require
+## Library
 
 The **require** tag mandates that a Javascript file must be loaded and executed before the *cog* containing its declaration is initialized. This tag is used to declare library dependencies for the entire application, but allows the load to be deferred until needed. 
 
