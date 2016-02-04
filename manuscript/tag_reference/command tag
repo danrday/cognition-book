@@ -1,6 +1,6 @@
 ## Command
 
-gs are created based on one url.
+T> For explicitly creating actions that should trigger state changes, the command tag is your interface.
 
 They are mapped to the keys (or indices) of a source array of data via the source attribute.
 

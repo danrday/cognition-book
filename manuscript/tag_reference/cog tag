@@ -1,9 +1,8 @@
 ## Cog
 
-{blurb}
-**TLDR**
-The core component of the Cognition framework. Put cogs into cogs to build an application as a big nested tree (it's turtles all the way down).
-{/blurb}
+
+T> The core component of the framework. Put cogs into cogs to build an application as a big nested tree (it's turtles all the way down).
+
 
 The cog tag embeds a visible cog component within the HTML display of the current cog, loading (lazy-style) into
 the DOM node referenced by its node attribute (which is matched against the id attribute of a node in the display DOM).

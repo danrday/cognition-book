@@ -1,7 +1,8 @@
 ## Adapter
 
+T> The adapter tag is key if you want to make reusable, configurable components for general use.
 
-The alias tag provides a way to create references to specific URLs. Each of these can reference a parent alias via the path attribute in order to construct chained paths.
+The adapter tag provides a way to create references to specific URLs. Each of these can reference a parent alias via the path attribute in order to construct chained paths.
 
 Although '../' is supported as a convenience, this tag is designed to discourage its usage.
 

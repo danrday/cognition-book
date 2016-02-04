@@ -1,5 +1,7 @@
 ## Data
 
+T> Data tags hold all the data in observable boxes that have been stacked into a tree of implicit component-based scopes.
+
 **TLDR**: Stores observable **data** on **cog**.  Watched by **sensors**. 
 
 The **data** tag creates a named location owned and governed by the **cog** in which it is declared. Its name is required to be unique within the **cog**. The containing **cog** and its descendants can read, write and subscribe via **sensors** to the data contained within it. Child **cogs** can reference **data** locations above themselves by using the **prop** tag. Parent **cogs** have no direct access to the **data** contained within their children by design.  

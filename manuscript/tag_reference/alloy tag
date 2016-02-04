@@ -1,7 +1,7 @@
 ## Alloy
 
 
-I> Alloys provide reusable logic for cogs, like libraries or mixins or state machines with declarative goodness.
+T> Alloys provide reusable logic for cogs, like libraries or mixins or state machines with declarative goodness.
 
 The alloy tag adds additional blueprint and script functionality to (as if just above) the cog in which it is declared.
 Alloys can act as libraries or state machines and do not have a display declaration.
