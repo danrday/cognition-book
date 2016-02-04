@@ -1,32 +1,59 @@
 ## Net
 
-**TLDR**: Stores observable **data** on **cog**.  Watched by **sensors**. 
+T> Extends data tag functionality with network requests.
 
-The **data** tag creates a named location owned and governed by the **cog** in which it is declared. Its name is required to be unique within the **cog**. The containing **cog** and its descendants can read, write and subscribe via **sensors** to the data contained within it. Child **cogs** can reference **data** locations above themselves by using the **prop** tag. Parent **cogs** have no direct access to the **data** contained within their children by design.  
+The net tag is a reusable network request and response feed paired with a data tag whose value is the last network response.
 
-### Data Tag Examples
+Net tags store response data on the data tag's default 'update' topic.
+
+They initiate requests by watching for writes on the 'request' topic (possibly containing request parameters).
+Additional request settings and parameters can be supplied as defaults via the service attribute.
+
+The status of requests can be monitored by watching the 'condition' topic (possible values are 'busy', 'done' and 'error').
+
+Order of precedence for settings and parameters (highest to lowest):
+
+1) Piped in on the request topic (overrides params)
+2) In-line attributes (except service)
+3) Service attribute
+
+### Net Tag Examples
 
 ```html
-<data name="currentPage" />
-<data name="furColor" value="red" prop="true" />
-<data name="eyeColor" value="run determineEyeColor"  />
-<data name="numArms" value="prop armCount" />
-<data name="numLegs" value="number 4" />
-<data name="dynamicConfig" value="config initialConfig" />
-<data name="isHungry" value="true" inherit="true" />
-<data name="theWordTrue" value="string true" />
+<net name="currentUser" path="SVC_ROOT" url="getUser" />
+<net name="updateFacility" url="UPDATE_FACILITY"  />
+<net name="configSvc" service="run determineConfigSvc"  />
+<net name="movies" url="/api/movies" verb="POST" params="prop dramaFilms/>
 ```
 
-### Data Tag Attributes
+### Net Tag Attributes
 
-|Name | Description | [Types] & Options |
-|-----------|--------------|-----------|
-|**name**| A unique name within the containing **cog** by which this **data** location may be referenced. | [string] |
-|-----------|--------------|-----------|
-|value|  The initial value to be stored within this **data** location. By default, no value is assigned and it would read as undefined. Unless specified as a 'string' type, primitive values in the tag are automatically converted to true, false and null (see type *auto*). | [*auto*, any] |
-|-----------|--------------|-----------|
-|inherit|  Set the inherit flag to true to override the initial set value with the value of a **data** location of the same name if there is a match higher up the **cog** hierarchy. | [bool] |
-|-----------|--------------|-----------|
-|prop|  (Deprecated: will soon be true by default) Set the prop flag to true to expose the **data** location object as a property in the **cog's** script declaration. | [bool] |
+name*
+: Name to reference (must be locally unique). [*string*]
 
+url
+: Relative file path, absolute file path or alias name.
+  Resolves to a network api endpoint. [*string*]
+
+path
+: Relative or absolute directory path, prepended to the url. Can be another alias defined previously. [*string*]
+
+verb
+: HTTP Verb [*string*]
+
+service
+: Configuration object for the request that can hold multiple default values such as url, path, verb, params, etc. [*prop*, read, run]
+
+params
+: Configuration object for the request parameters, overriding any service settings. [*prop*, read, run]
+
+request
+: Automatic request on instantiation [*bool*]
+
+prop
+: (Deprecated: will soon be true by default)
+  Exposes the data tag as a property in the cog's script declaration. [*bool*]
+
+
+------
 

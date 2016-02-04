@@ -12,9 +12,12 @@ tag_reference/alias tag
 tag_reference/alloy tag
 tag_reference/chain tag
 tag_reference/cog tag
+tag_reference/command tag
 tag_reference/data tag
-tag_reference/library tag
+tag_reference/net tag
 tag_reference/preload tag
 tag_reference/prop tag
+tag_reference/pump tag
+tag_reference/require tag
 tag_reference/sensor tag
 tag_reference/valve tag

@@ -22,7 +22,7 @@ local data tags to allow generic implementations.
 <adapter name="list" field="recordSource" item="config" />
 ```
 
-### Alias Tag Attributes
+### Adapter Tag Attributes
 
 name*
 : Name to reference. [*string*]

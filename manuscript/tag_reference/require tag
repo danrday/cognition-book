@@ -1,0 +1,23 @@
+## Require
+
+T> Makes sure that JavaScript libraries have already been run.
+
+The require tag mandates that a JavaScript file must be loaded and executed before the cog containing its declaration is initialized.
+
+This tag is used to declare library dependencies for the entire application, but allows the load to be deferred until needed.
+
+### Require Tag Examples
+
+```html
+<require url="paws.js" />
+<require url="kittenPower.js" path="JS_LIB" />
+```
+
+### Require Tag Attributes
+
+url*
+: Relative file path, absolute file path or alias name.
+  Resolves to a JavaScript file. [*string*]
+
+path
+: Relative or absolute directory path, prepended to the url. Can be another alias defined previously. [*string*]
