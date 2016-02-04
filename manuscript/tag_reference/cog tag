@@ -41,7 +41,7 @@ item
 : Internal data source created within each cog of the chain (using source). [*data* itemData, prop, run, read]
 
 name
-: Name to reference (for routes). [*string*]
+: Name to reference (for routes or to find data 'in [name]'). [*string*]
 
 route
 : Indicates a namespace (named after the cog) for data tags. [*boolean*]

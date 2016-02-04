@@ -19,7 +19,7 @@ The script contents of an alloy are exposed on the script of the declaring cog (
 ### Alloy Tag Attributes
 
 name
-: Name to reference. [*string*]
+: Name to reference (for routes or to find data 'in [name]'). [*string*]
 
 url*
 : Relative file path, absolute file path or alias name.

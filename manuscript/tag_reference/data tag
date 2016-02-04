@@ -2,9 +2,14 @@
 
 T> Data tags hold all the data in observable boxes that have been stacked into a tree of implicit component-based scopes.
 
-**TLDR**: Stores observable **data** on **cog**.  Watched by **sensors**. 
+The data tag creates a named storage point owned and governed by the cog in which it is declared.
 
-The **data** tag creates a named location owned and governed by the **cog** in which it is declared. Its name is required to be unique within the **cog**. The containing **cog** and its descendants can read, write and subscribe via **sensors** to the data contained within it. Child **cogs** can reference **data** locations above themselves by using the **prop** tag. Parent **cogs** have no direct access to the **data** contained within their children by design.  
+Its name must be unique within the cog. The containing cog and its descendants can read, write and
+subscribe via sensor tags to the data contained within it.
+
+Child cogs can reference/expose data tags above themselves by using the prop tag.
+
+Parent cogs have no direct access to the data contained within their children by design.
 
 ### Data Tag Examples
 
@@ -13,22 +18,27 @@ The **data** tag creates a named location owned and governed by the **cog** in w
 <data name="furColor" value="red" prop="true" />
 <data name="eyeColor" value="run determineEyeColor"  />
 <data name="numArms" value="prop armCount" />
-<data name="numLegs" value="number 4" />
-<data name="dynamicConfig" value="config initialConfig" />
+<data name="numLegs" value="num 4" />
 <data name="isHungry" value="true" inherit="true" />
 <data name="theWordTrue" value="string true" />
 ```
 
 ### Data Tag Attributes
 
-|Name | Description | [Types] & Options |
-|-----------|--------------|-----------|
-|**name**| A unique name within the containing **cog** by which this **data** location may be referenced. | [string] |
-|-----------|--------------|-----------|
-|value|  The initial value to be stored within this **data** location. By default, no value is assigned and it would read as undefined. Unless specified as a 'string' type, primitive values in the tag are automatically converted to true, false and null (see type *auto*). | [*auto*, any] |
-|-----------|--------------|-----------|
-|inherit|  Set the inherit flag to true to override the initial set value with the value of a **data** location of the same name if there is a match higher up the **cog** hierarchy. | [bool] |
-|-----------|--------------|-----------|
-|prop|  (Deprecated: will soon be true by default) Set the prop flag to true to expose the **data** location object as a property in the **cog's** script declaration. | [bool] |
+name*
+: Name to reference (must be locally unique). [*string*]
 
+value
+: Value stored in the data tag. Defaults to undefined. [*auto*, read, prop, run, string, num, bool]
+
+inherit
+: Overrides the initial value with the value of a data tag of the same name (if there is a match higher up the cog hierarchy).
+  [*bool*]
+
+prop
+: (Deprecated: will soon be true by default)
+  Exposes the data tag as a property in the cog's script declaration. [*bool*]
+
+
+------
 
