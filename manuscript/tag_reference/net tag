@@ -13,9 +13,11 @@ The status of requests can be monitored by watching the 'condition' topic (possi
 
 Order of precedence for settings and parameters (highest to lowest):
 
-1) Piped in on the request topic (overrides params)
-2) In-line attributes (except service)
-3) Service attribute
+
+ 1. Piped in on the request topic (overrides params)
+ 2. In-line attributes (except service)
+ 3. Service attribute
+
 
 ### Net Tag Examples
 
