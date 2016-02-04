@@ -2,24 +2,24 @@
 
 T> The adapter tag is key if you want to make reusable, configurable components for general use.
 
-The adapter tag provides a way to create references to specific URLs. Each of these can reference a parent alias via the path attribute in order to construct chained paths.
+The adapter tag acts like a data tag that has been dynamically wired to another data tag above it in the component tree.
+The control attribute determines the direction of the binding. If set to control, any writes made to the local adapter
+will be automatically relayed to the higher data tag. If not in control, the adapter will watch the higher data tag, mirroring its value.
 
-Although '../' is supported as a convenience, this tag is designed to discourage its usage.
+The basic idea is that you can provide the name of an external data tag via configuration while the code in your cog file works with
+local data tags to allow generic implementations.
 
-Other cognition tags with url or path attributes can use alias names as values to handle file path resolution.
 
-Using alias tags, one can rearrange the directory structure of an existing application without modifying the underlying code.
 
-By convention, the name attribute of an alias tag is always fully capitalized with underscores between words.
 
-### Alias Tag Examples
+### Adapter Tag Examples
 
 ```html
-<alias name="LIBRARY_FILE" url="/public/js/library.js" />
-<alias name="CONTENT_ROOT" url="/public/app/html"  />
-<alias name="PAGES" path="CONTENT_ROOT" url="pages"  />
-<alias name="CHART_PAGE" path="PAGES" url="charts.html" />
-<alias name="CREDITS_PAGE" path="PAGES" url="credits.html" />
+<adapter name="records" />
+<adapter name="display" field="buttonValue" />
+<adapter name="action" field="buttonCmd" control="true" />
+<adapter name="color" optional="true" />
+<adapter name="list" field="recordSource" item="config" />
 ```
 
 ### Alias Tag Attributes
@@ -27,13 +27,19 @@ By convention, the name attribute of an alias tag is always fully capitalized wi
 name*
 : Name to reference. [*string*]
 
+item
+: Name of the data tag holding the configuration object for the adapter.
+  Defaults to the injected item (if present) from the item attribute of the parent cog. [*string*]
 
-url*
-: Relative or absolute file path. [*string*]
+field
+: Looks for this property on the configuration object, which should be the name of the
+  higher data tag to follow or control. Defaults to the value of the name attribute. [*string*, read, prop, run]
 
-path
-: Relative or absolute directory path, prepended to the url. Can be another alias defined previously. [*string*]
+control
+: Will forward all writes to a higher data tag (default is to mirror its value). [*bool*]
 
+optional
+: Silently fails if no valid higher data tag is found when initialized. [*string*]
 
 
 ------
