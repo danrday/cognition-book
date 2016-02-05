@@ -1,52 +1,29 @@
 ## Command
 
-T> For explicitly creating actions that should trigger state changes, the command tag is your interface.
+T> For explicitly creating actions that should trigger state changes.
 
-They are mapped to the keys (or indices) of a source array of data via the source attribute.
+A command tag creates a data tag and an associated sensor tag that watches it via the trigger attribute.
 
-Data is injected into each via child cog via the chain's item attribute.
+The sensor's trigger attribute and the data tag's name attribute are both set to the command tag's name.
+While the command tag can watch, need or gather associated data using standard sensor features, it will only
+be triggered by writes to its primary data tag.
 
-Other options can help to control how these cogs are layered and applied to the DOM.
+Commands are a shorthand to explicitly label user actions in your application while restricting them to a single point
+of entry.
 
-### Chain Tag Examples
+### Command Tag Examples
 
 ```html
-<chain node="body" source="records" item="record" url="row.html" />
-<chain node="holder" source="prop filters" item="prop filter" url="COMBO_BOX" />
-<chain node="list" source="cats" path="LAYOUTS" url="list.html" key="cat_id" />
-<chain node="blogroll" source="run getBloggers" url="blogger.html" />
+<command name="addTurtle_cmd" gather="turtleName,turtleType" transform="toTurtle" emit="request" pipe="addTurtle_net" />
+<command name="activeTab_cmd" pipe="activeTab" />
 ```
 
-### Chain Tag Attributes
+### Command Tag Attributes
 
-node*
-: Node in the display in which to put the chain. Matched against the id attribute of nodes in the display declaration. [*string*]
+name*
+: Name to reference (must be locally unique). [*string*]
 
-url*
-: Relative file path, absolute file path or alias name.
-  Resolves to file containing a cog definition that implements a display declaration
-  (and possibly script or blueprint declarations).
-  [*string*, data, prop, run, read]
-
-path
-: Relative or absolute directory path, prepended to the url. Can be another alias defined previously. [*string*]
-
-source
-: External data source (must resolve to an array) for configuration. [*data*, prop, run, read]
-
-item
-: Internal data source created within each cog of the chain (using source). [*data* itemData, prop, run, read]
-
-name
-: Name to reference (for routes). [*string*]
-
-route
-: Indicates a namespace (named after the chain) for data tags. [*boolean*]
-
-key
-: A way to identify data elements that persist across source changes. An item's index in the source array is used by default.
-  An object property name or a method to compute a key (function(data) { ... return key; } can be used as key values.
-  [*index*, string, prop, run, read]
+[All other attributes are listed under the *Sensor Tag*]
 
 ------
 

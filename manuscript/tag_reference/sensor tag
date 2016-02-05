@@ -19,6 +19,23 @@ With the 'node' attribute, a **sensor** can listen for DOM events on a nodeÃ‚
 
 ```
 
+### Sensor Message Lifecycle
+
+When a sensor tag receives a message, it goes through the following series of steps in order to process it.
+
+ 1. Check Enabled: If the **sensor** has been deactivated (dropped), the message is silently aborted.
+ 2. Gather: The values of any data locations to *gather* are bundled into a hash of values by *source* name, augmenting the original *message* data.
+ 3. Extract: A property plucked from the *message* that replaces it.
+ 4. Conform: A functor to modify or replace the incoming *message* (before change or filters are applied).
+ 5. Change: If *change* is true, the *message* will silently abort if it equals the last *message* seen and stored at this point in the process.
+ 6. Filter: If present, a *filter* function is called with arguments (message, topic, source) and will continue if *true* is returned.
+ 7. Batch and Group: If *batch* or *group* attributes are defined, the sensor will begin bundling *messages* in a list or hash, respectively.
+ 8. Transform:  The *transform* attribute acts as a functor to modify or replace the outgoing *message*.
+ 9. Emit: The *emit* attribute acts as a functor to modify or replace the outgoing *topic*.
+ 10. Queue: The *message* is either sent directly or queued for delivery on *flush* (invoked manually or by the next cycle of the event loop).
+
+
+
 ### Sensor Tag Attributes
 
 |Name | Description | [Types] & Options |

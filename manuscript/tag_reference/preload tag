@@ -12,7 +12,7 @@ They are not executed and are not placed in the cog hierarchy.
 ```html
 <preload url="whiskers.js" />
 <preload url="returnOfTheCats.html" path="CAT_COGS" />
-`
+```
 
 ### Preload Tag Attributes
 

@@ -4,8 +4,7 @@ T> Expose tags as object properties available to your script declaration.
 
 The prop tag lets one reference tags in the script declaration so that they can be directly manipulated.
 
-data tag, alias,  within a **script** such that the name of the property is added as a property within a **cog's script**. It is used to expose and access properties  defined in **cogs** above the current one.
-
+This is a hack or convenience feature as the framework *should not* ideally require its presence.
 
 ### Prop Tag Examples
 

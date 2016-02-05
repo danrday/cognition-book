@@ -11,6 +11,8 @@ Additional request settings and parameters can be supplied as defaults via the s
 
 The status of requests can be monitored by watching the 'condition' topic (possible values are 'busy', 'done' and 'error').
 
+Note: As net tags imply external data sources, the data tag's route attribute is not available to them.
+
 Order of precedence for settings and parameters (highest to lowest):
 
 

@@ -11,10 +11,12 @@ Child cogs can reference/expose data tags above themselves by using the prop tag
 
 Parent cogs have no direct access to the data contained within their children by design.
 
+If the route attribute is set, the initial value of a data tag can be set via the url used to load the the application.
+
 ### Data Tag Examples
 
 ```html
-<data name="currentPage" />
+<data name="currentPage" route="true" />
 <data name="furColor" value="red" prop="true" />
 <data name="eyeColor" value="run determineEyeColor"  />
 <data name="numArms" value="prop armCount" />
@@ -34,6 +36,9 @@ value
 inherit
 : Overrides the initial value with the value of a data tag of the same name (if there is a match higher up the cog hierarchy).
   [*bool*]
+
+route
+: Indicates that the data tag can be initialized via a route provided by the url. [*boolean*]
 
 prop
 : (Deprecated: will soon be true by default)
