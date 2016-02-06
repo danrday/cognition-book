@@ -1,6 +1,6 @@
 ## Adapter
 
-{icon=key}
+A> {icon=key}
 A> The adapter tag is key if you want to make reusable, configurable components for general use.
 
 The adapter tag acts like a data tag that has been dynamically wired to another data tag above it in the component tree.
