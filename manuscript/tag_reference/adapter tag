@@ -1,5 +1,6 @@
 ## Adapter
 
+{icon: key}
 A> The adapter tag is key if you want to make reusable, configurable components for general use.
 
 The adapter tag acts like a data tag that has been dynamically wired to another data tag above it in the component tree.
@@ -12,7 +13,7 @@ local data tags to allow generic implementations.
 
 
 
-### Adapter Tag Examples
+### Examples
 
 ```html
 <adapter name="records" />
@@ -22,7 +23,7 @@ local data tags to allow generic implementations.
 <adapter name="list" field="recordSource" item="config" />
 ```
 
-### Adapter Tag Attributes
+### Attributes
 
 name*
 : Name to reference. [*string*]
