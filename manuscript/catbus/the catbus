@@ -5,9 +5,9 @@ Data Store (Cat?) and Message Bus (Bus!) in Javascript
 
 
 {icon=automobile}
-G> ## Vrooom!
-G>
-G> The freedom of the road!
+A> ## Vrooom!
+A>
+A> Moo freedom of the road!
 
 
 Sensors watch data locations and relay messages through function calls that always pass 3 arguments: message, topic and source.
