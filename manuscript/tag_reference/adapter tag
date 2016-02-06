@@ -29,14 +29,14 @@ name*
 
 item
 : Name of the data tag holding the configuration object for the adapter.
-  Defaults to the injected item (if present) from the item attribute of the parent cog. [*string*]
+  Defaults to the injected item (if present) from the 'item' attribute of the parent cog. [*string*]
 
 field
-: Looks for this property on the configuration object, which should be the name of the
-  higher data tag to follow or control. Defaults to the value of the name attribute. [*string*, read, prop, run]
+: Looks for this property on the configuration object, which should be the 'name' of a
+  higher data tag to follow or control. Defaults to the value of the 'name' attribute. [*string*, read, prop, run]
 
 control
-: Will forward all writes to a higher data tag (default is to mirror its value). [*bool*]
+: Will forward all writes to a higher data tag (default is to subscribe and its mirror its value). [*bool*]
 
 optional
 : Silently fails if no valid higher data tag is found when initialized. [*string*]

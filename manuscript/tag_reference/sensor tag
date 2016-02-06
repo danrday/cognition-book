@@ -1,8 +1,10 @@
 ## Sensor
 
-**TLDR**: Watches **data** locations as a subscriber. Fires output by invoking a 'run' method or piping a message to a **data** location with the 'pipe' name. Can do fun stuff like transforms, filters, batching, etc.
+T> The event bindings that watch, move and transform data throughout an application.
 
-**Sensors** detect events and data flows, acting as subscription instances that can gather, filter, transform and emit message data.Ã‚ 
+Sensors are configurable subscriptions to data tags (or DOM nodes, indirectly).
+
+They are configurable , acting as subscription instances that can gather, filter, transform and emit message data.Ã‚
 
 Using the 'watch' and/or 'need' attributes, **sensors** can monitor **data** locations by name. **Sensors** search for each **data** location in turn, checking the current **cog** and then walking up the **cog** hierarchy until a match is found. Note: the search pattern can be modified using the 'where' attribute. 
 
@@ -38,6 +40,7 @@ When a sensor tag receives a message, it goes through the following series of st
 
 ### Sensor Tag Attributes
 
+#### Input Related
 
 watch (1)
 : A list of names referring to named data tags that the sensor will subscribe to.
@@ -46,7 +49,7 @@ watch (1)
   [string (comma delimited)]
 
 need (1)
-: The 'need' attribute subscribes to data tags just like the 'watch' attribute, but prevents the sensor from firing (via run, pipe, etc.)
+: The 'need' attribute subscribes to data tags just like the 'watch' attribute, but prevents the sensor from firing (via 'run' or 'pipe')
   until it has received data from every listed tag. [string (comma delimited)]
 
 node (1)
@@ -65,7 +68,7 @@ optional
   will simply be ignored (as opposed to throwing errors). [bool]
 
 where
-: Where to search for the given data tag name(s). [*first*, parent, outer, last, in (cog or alloy name)]
+: Where to search for data tag name(s) used by 'need', 'watch' or 'gather'. [*first*, parent, outer, last, in (cog or alloy name)]
 
   'first'
   : looks locally and goes up the cog tree, returning the first match.
@@ -79,43 +82,72 @@ where
   'last'
   : returns the highest, final match in the cog hierarchy.
 
+  'in (name)'
+  : finds with 'first' cog or alloy with a matching name and returns a matching data tag within it
 
-route
-: Indicates that the data tag can be initialized via a route provided by the url. [*boolean*]
 
-prop
-: (Deprecated: will soon be true by default)
-  Exposes the data tag as a property in the cog's script declaration. [*bool*]
+conform
+: Name of the function (in the script declaration) used to modify the incoming message.
+  Note that this runs after 'gather' and 'extract' attribute operations.
+  The function should accept three arguments: message, topic and source and runs with 'this' set to the script instance.
+  It should return the new message value. [string]
 
+filter
+: Name of the function (in the script declaration) to use as a filter against the message.
+  Note that this runs after 'gather', 'extract' and 'conform' attribute operations.
+  The function should accept three arguments: message, topic and source and runs with 'this' set to the script instance.
+  It should return true in order to continue processing the data.
+  If the filter method returns false, the incoming data will be silently ignored. [string]
+
+#### Output Related
+
+to
+: Where to search for the data tag name used by 'pipe'.
+  See 'where' for option info. [*first*, parent, outer, last, in (cog or alloy name)]
+
+pipe (2)
+: When the sensor fires, writes to the data tag found with the name specified by 'pipe' (and using the 'to' attribute). [string]
+
+run (2)
+: Name of the function (in the script declaration) to run as an output or side effect when the sensor fires.
+  The function should accept three arguments: message, topic and source and runs with 'this' set to the script instance.
+  The message argument contains the data being transferred and is typically the only argument needed. [string]
+
+toggle (2)  (*deprecated*: this feature will move to the data tag in the future).
+: Name of the data tag to toggle (as a boolean) when the sensor fires.
+
+transform
+: Name of the function (in the script declaration) used to modify the outgoing message.
+  The function should accept three arguments: message, topic and source and runs with 'this' set to the script instance.
+  It should return the new message value. [string]
+
+emit
+: Name of the function (in the script declaration) used to modify the outgoing topic.
+  The function should accept three arguments: message, topic and source and runs with 'this' set to the script instance.
+  It should return the new topic value.  [string]
+
+once
+: Fires only once. [bool]
+
+change
+: Files only if the incoming message value (after 'conform') has changed. [bool]
+
+keep
+: If 'batch' is true, the sensor keeps an internal history of messages received that it will process when the bus flushes.
+  By default, it will pass along the 'last' message received when it fires.
+  It can also pass the 'first' message seen, or even an array containing 'all' messages received between flushes. [*last*, first, all]
+
+batch
+: When data is received, the sensor will note it but not fire until the bus is flushed (which occurs via requestAnimationFrame).
+  Data stored is based on the 'keep' attribute.
+  Sensors watching multiple data tags 'batch' automatically. [bool]
+
+group
+: When data is received, the sensor will note it but not fire until the bus is flushed (which occurs via requestAnimationFrame).
+  Sensors watching multiple data tags 'group' automatically, outputting a message object keyed by data tag (source) name. [bool]
 
 ------
 
-
-
-|-----------|--------------|-----------|
-|where|  Where to search for the given tag name(s). 'first': looks locally and goes up the **cog** tree, returning the first match. 'parent': like 'first' but skips the current **cog**. 'outer': returns the second match. 'last': returns the highest, final match in the **cog** hierarchy.  | *first*, parent, outer, last |
-|-----------|--------------|-----------|
-|**pipe** (2)| When the **sensor** fires, writes to the 'first' **data** location found with the name specified by 'pipe'. The attributes 'pipe' or 'run' are the only output methods for **sensors** and are mutually exclusive. | [string] |
-|-----------|--------------|-----------|
-|**run** (2)| When the *sensor* fires, runs a function of the given name as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag, sensor); the message argument contains the data being transferred and is typically the only argument needed. The attributes 'pipe' or 'run' are the only output methods for **sensors** and are mutually exclusive. | [string] |
-|-----------|--------------|-----------|
-|filter| When the *sensor* receives new data, a function of the given name is invoked as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag) and it should return true in order to continue processing the data. If the filter method returns false, the incoming data will be silently ignored. | [string] |
-|-----------|--------------|-----------|
-|transform| When the *sensor* receives new data, a function of the given name is invoked as a method of the **script** in the containing **cog**.  The method's signature should be f(message, topic, tag) and it should return true in order to continue processing the data. If the filter method returns false, the incoming data will be silently ignored. For 'batch' *sensors*, this currently applies the 'transform' method to the messages before they are batched. (Future versions might include something like 'arrive' and 'leave' as methods to handle both outputs.)  | [bool] |
-|-----------|--------------|-----------|
-|once| This flag will automatically destroy the *sensor* after firing a single time. | [bool] |
-|-----------|--------------|-----------|
-|change| This flag will prevent the **sensor** from firing unless the incoming message differs from the last message received, i.e., it skips (or silences) duplicates. | [bool] |
-|-----------|--------------|-----------|
-|retain| If the *sensor* has a 'need' attribute, it will remain fulfilled once satisfied. Normally, the needs are reset when a *sensor* fires such that fresh data is required for each 'need'. | [bool] |
-|-----------|--------------|-----------|
-|keep| A *sensor* set to 'batch' keeps an internal history of messages received that it will process when the bus flushes. By default, it will pass along the 'last' message received when it fires. It can also pass the 'first' message seen, or even an array containing 'all' messages received between flushes. | *last*, first, all |
-|-----------|--------------|-----------|
-|auto| Upon creation, the **sensor** will automatically read and pass along the value stored in the **data** location it is monitoring IF the message is not *undefined*. | [bool] |
-|-----------|--------------|-----------|
-|batch| When data is received, the *sensor* will note it but not fire until the bus is flushed (which occurs via requestAnimationFrame). *Sensors* watching multiple *data* locations set 'batch' to true automatically. Note that any 'need' attributes must also be met in order for the **sensor** to fire.   | [bool] |
-|-----------|--------------|-----------|
-
-1) All **sensors** require something to watch, an input source,  be it a DOM 'node' or **data** location. 
-2) All **sensors** should produce an output; they can 'run' a method defined on their **cog** or 'pipe' messages to another **data** location.
+1) All sensors require something to watch (some input source), be it a DOM 'node' or data tag(s).
+2) All sensors should produce an output; they can 'run' a method defined in their cog's script declaration or 'pipe' messages to another data tag.
 
