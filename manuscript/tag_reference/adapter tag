@@ -1,7 +1,6 @@
 ## Adapter
 
-A> {icon=key}
-A> The adapter tag is key if you want to make reusable, configurable components for general use.
+A> #### The adapter tag is key if you want to make reusable, configurable components for general use.
 
 The adapter tag acts like a data tag that has been dynamically wired to another data tag above it in the component tree.
 The control attribute determines the direction of the binding. If set to control, any writes made to the local adapter
@@ -9,9 +8,6 @@ will be automatically relayed to the higher data tag. If not in control, the ada
 
 The basic idea is that you can provide the name of an external data tag via configuration while the code in your cog file works with
 local data tags to allow generic implementations.
-
-
-
 
 ### Examples
 

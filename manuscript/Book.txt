@@ -1,6 +1,5 @@
 intro/design goals
 intro/design philosophy
-catbus/the catbus
 intro/the framework
 intro/typed attributes
 
