@@ -1,7 +1,7 @@
 ## Alias
 
 
-A> *Safely move directories around, rename files, flip between versions of code, or refactor all the things.*
+A> **Safely move directories around, rename files, flip between versions of code, or refactor all the things.**
 
 The alias tag provides a way to create references to specific URLs. Each of these can reference a parent alias via the path attribute in order to construct chained paths.
 
