@@ -1,6 +1,6 @@
 ## Chain
 
-T> If you want many instances of the same component, break out the chain tag.
+A> *For many instances of the same cog.*
 
 Chains create arrays of cogs based on a common url.
 

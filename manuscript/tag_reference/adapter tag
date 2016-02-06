@@ -1,6 +1,6 @@
 ## Adapter
 
-A> #### The adapter tag is key if you want to make reusable, configurable components for general use.
+A> *To make reusable, configurable components for general use.*
 
 The adapter tag acts like a data tag that has been dynamically wired to another data tag above it in the component tree.
 The control attribute determines the direction of the binding. If set to control, any writes made to the local adapter
